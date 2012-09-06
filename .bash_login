@@ -1,0 +1,30 @@
+# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
+# ~/.extra can be used for settings you don’t want to commit
+for file in ~/.{aliases,bash_prompt,functions}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
+
+# To use Sublime Text 2 as the editor for many commands that prompt for input, set your EDITOR environment variable:
+# Specifying -w will cause the subl command to not exit until the file is closed.
+# learn more: http://www.sublimetext.com/docs/2/osx_command_line.html
+export EDITOR='subl -w'
+
+# node configurations
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
+export NODE_ENV="development"
+
+# run z 
+. ~/src/z/z.sh
+
+# mongo db location
+PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin 
+
+# python path 
+PATH=$PATH:/usr/lib/python2.7
+
+# rvm 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# dotfiles bin added to the path, this technique comes from Ben Alman's dotfiles repo
+PATH=$PATH:~/mysrc/dotfiles/bin
