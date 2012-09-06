@@ -1,4 +1,4 @@
-# weisjohn's dotfiles ( Many!!! thanks to Mathias )
+# weisjohn's dotfiles 
 
 ## Installation
 
