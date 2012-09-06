@@ -1,0 +1,18 @@
+
+
+
+# this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gs="git status"
+alias gd="git diff"
+alias gsup="git pull && git submodule update"
+
+
+alias ip="ifconfig | grep 'inet '"
+
+
+
+# phone gap aliases
+
+	# for ios (pi = Phonegap Ios)
+alias picreate="~/src/phonegap/lib/ios/bin/create"
