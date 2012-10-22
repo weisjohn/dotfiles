@@ -1,13 +1,16 @@
 # this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gsup="git pull && git submodule update"
+# these could be put in .gitconfig
 alias gs="git status"
 alias gd="git diff"
-alias gsup="git pull && git submodule update"
 
-
+# don't look through ifconfig everytime, just find local IPs
 alias ip="ifconfig | grep 'inet '"
 
-# phone gap aliases
+# colorized cat : #https://github.com/gthank/solarized-dark-pygments 
+alias c='pygmentize -O style=solarized -f console256 -g'
 
-	# for ios (pi = Phonegap Ios)
+# phone gap aliases
+	# for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
