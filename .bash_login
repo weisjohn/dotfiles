@@ -1,18 +1,27 @@
+# git autocompletion
+source ~/git-completion.bash
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{aliases,bash_prompt,functions}; do
+for file in ~/.{aliases,bash_prompt,functions,git-completion-aliases}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
 
+
 # To use Sublime Text 2 as the editor for many commands that prompt for input, set your EDITOR environment variable:
 # Specifying -w will cause the subl command to not exit until the file is closed.
 # learn more: http://www.sublimetext.com/docs/2/osx_command_line.html
-export EDITOR='subl -w'
+#export EDITOR='subl -w'
+
+# nvm 
+. ~/nvm/nvm.sh
+nvm use 0.8.14
 
 # node configurations
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 export NODE_ENV="development"
+export NODE_DEV_CLEARSCREEN=false
 
 # run z 
 . ~/src/z/z.sh
