@@ -14,6 +14,33 @@ function gm() {
 	git merge --no-ff $@
 }
 
+# https://github.com/holman/spark/wiki/Wicked-Cool-Usage
+# Histogram of commits throughout the day by author
+function gg() {
+	git log --pretty=format:'%an: %at' --author="$@" |
+    awk '{system("date -r "$NF" '+%H'")}' |
+    sort |
+    uniq -c |
+    ruby -e 'puts STDIN.readlines.inject(Hash[Array("00".."23").map{|x| [x,0]}]) {|h, x| h.merge(Hash[*x.split(" ").reverse])}.sort.map(&:last)' |
+    spark
+}
+
+# https://github.com/holman/spark/wiki/Wicked-Cool-Usage
+# git commits for the last two weeks
+function g2w() {
+	for day in $(seq 14 -1 0); do
+    	git log --before="${day} days" --after="$[${day}+1] days" --format=oneline |
+    wc -l
+	done | spark
+}
+
+# today's activity
+function gt() {
+	for hour in $(seq 8 -1 0); do 
+    	git log --author "$@" --before="${hour} hours" --after="$[${hour}+1] hours" --format=oneline | 
+    	wc -l;
+	done | spark
+}
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
@@ -31,4 +58,7 @@ function weinre() {
 	node /usr/local/lib/node_modules/weinre/weinre --boundHost=$host
 }
 
-
+# move image to dropbox www_img
+function mi() {
+	mv $@ ~/Dropbox/www_img/.
+}
