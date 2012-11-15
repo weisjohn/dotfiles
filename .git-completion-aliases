@@ -32,3 +32,5 @@ __git_shortcut  gf    fetch
 __git_shortcut  glp   log -p
 __git_shortcut  gls   log --stat
 __git_shortcut  gm 	  merge --no-ff
+__git_shortcut  gp    pull
+__git_shortcut  gu    push
