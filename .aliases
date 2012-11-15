@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -13,6 +14,7 @@ alias l="ls -l ${colorflag}"
 alias la="ls -la ${colorflag}"
 alias ll="ls -la ${colorflag}"
 
+alias src="source ~/.bash_login"
 
 # this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
