@@ -12,8 +12,12 @@ brew install wget --enable-iri
 # brew ack
 brew install ack
 
-# brew 
+# git 
 brew install git
+
+# spark - https://github.com/holman/spark
+brew install spark
+
 
 # Remove outdated versions from the cellar
 brew cleanup
