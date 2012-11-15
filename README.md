@@ -1,8 +1,10 @@
 # weisjohn's dotfiles ( an unholy merger of Mathia's and Ben Alman's dotfile repos )
 
 ### Brand new OSX machine awesomeness... when you have nothing...
-```bash
 
+Install the XCode 
+```
+bash -c "$(curl -fsSL https://raw.github.com/weisjohn/dotfiles/master/bin/dotfiles)"
 ```
 
 

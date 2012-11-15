@@ -9,10 +9,10 @@ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 # run the .brew file, this gives us git, wget, ack
 $HOME/.brew
 
-# install nvm , install node latests
-git clone git://github.com/creationix/nvm.git ~/nvm
-
-
+# install nvm , node latest
+git clone git://github.com/creationix/nvm.git $HOME/nvm
+. $HOME/nvm/nvm.sh
+nvm install 0.8.14
 
 # install z
 cd $HOME/src
