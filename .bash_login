@@ -14,9 +14,10 @@ unset file
 # learn more: http://www.sublimetext.com/docs/2/osx_command_line.html
 #export EDITOR='subl -w'
 
-# nvm 
+# nvm with tab completion
 . ~/nvm/nvm.sh
 nvm use 0.8.14
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
