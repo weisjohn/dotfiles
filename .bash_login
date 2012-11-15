@@ -30,6 +30,13 @@ export NODE_DEV_CLEARSCREEN=false
 # run z 
 . ~/src/z/z.sh
 
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
+
+
+# path modifications
+
 # mongo db location
 PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin 
 
