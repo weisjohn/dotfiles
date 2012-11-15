@@ -18,6 +18,8 @@ brew install git
 # spark - https://github.com/holman/spark
 brew install spark
 
+# man2html - http://dcssrv1.oit.uci.edu/indiv/ehood/man2html.html
+brew install man2html
 
 # Remove outdated versions from the cellar
 brew cleanup
