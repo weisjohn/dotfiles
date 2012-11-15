@@ -21,5 +21,8 @@ brew install spark
 # man2html - http://dcssrv1.oit.uci.edu/indiv/ehood/man2html.html
 brew install man2html
 
+# tab completion for some awesome stuff - http://meinit.nl/bash-completion-mac-os-x
+brew install bash-completion
+
 # Remove outdated versions from the cellar
 brew cleanup

@@ -4,6 +4,11 @@ export PATH="$HOME/bin:$PATH"
 # git autocompletion
 source ~/git-completion.bash
 
+# gives tab completion for lots o things 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{aliases,bash_prompt,functions,git-completion-aliases}; do
@@ -17,7 +22,7 @@ unset file
 # learn more: http://www.sublimetext.com/docs/2/osx_command_line.html
 #export EDITOR='subl -w'
 
-# nvm with tab completion
+# nvm , with tab completion
 . ~/nvm/nvm.sh
 nvm use 0.8.14
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
@@ -29,11 +34,6 @@ export NODE_DEV_CLEARSCREEN=false
 
 # run z 
 . ~/src/z/z.sh
-
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
-
 
 # path modifications
 
