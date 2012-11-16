@@ -32,17 +32,19 @@ git clone git://github.com/rupa/z.git
 curl -L https://get.rvm.io | bash -s stable --ruby
 
 ##################################################################
-# code						       								 #
+# code and repos				       							 #
 ##################################################################
 
 # download all my public github repos and my private gitolite repos into mysrc folder
 cp ./github_mega_clone.js $HOME/mysrc
 cp ./gitolite_mega_clone.js $HOME/mysrc
+cp ./personal_repos.js $HOME/mysrc
 cd $HOME/mysrc
 npm install request underscore
 node github_mega_clone.js
 node gitolite_mega_clone.js
-rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js
+node personal_repos.js
+rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js personal_repos.js
 
 
 ##################################################################
