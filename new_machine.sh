@@ -29,6 +29,6 @@ cp ./github_mega_clone.js $HOME/mysrc
 cd $HOME/mysrc
 npm install request underscore
 node github_mega_clone.js
-rm -rvf $HOME/mysrc/node_modules
+rm -rvf $HOME/mysrc/node_modules github_mega_clone.js
 
 echo "please run the bootstrap.sh file now"
