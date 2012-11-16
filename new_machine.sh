@@ -15,7 +15,7 @@ git clone git://github.com/creationix/nvm.git $HOME/nvm
 nvm install 0.8.14
 
 # install global node utilties 
-npm install -g underscore vows express coffee-script 
+npm install -g underscore vows express coffee-script request
 
 # install z
 cd $HOME/src
