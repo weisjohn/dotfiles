@@ -11,7 +11,7 @@ request('https://api.github.com/users/weisjohn/repos', function (error, response
         repos = JSON.parse(body);
 
         // retrive the ssh locations, process them one by one
-        var urls = u.pluck(r, 'ssh_url');
+        var urls = u.pluck(repos, 'ssh_url');
 
         u.each(urls, function(ssh_url) { 
             child = exec('git clone ' + ssh_url, function (error, stdout, stderr) {

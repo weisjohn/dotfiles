@@ -24,8 +24,11 @@ git clone git://github.com/rupa/z.git
 # install rvm 
 curl -L https://get.rvm.io | bash -s stable --ruby
 
-# download all personal github repos
-npm install request
+# download all personal github repos into mysrc folder
+cp ./github_mega_clone.js $HOME/mysrc
+cd $HOME/mysrc
+npm install request underscore
 node github_mega_clone.js
+rm -rvf $HOME/mysrc/node_modules
 
 echo "please run the bootstrap.sh file now"
