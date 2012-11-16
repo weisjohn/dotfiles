@@ -53,7 +53,7 @@ cd $HOME/Downloads
 
 
 ##################################################################
-# screen savers						       						 #
+# wallpapers and screen savers						       		 #
 ##################################################################
 
 mkdir -p $HOME/Pictures/desktops
@@ -61,6 +61,6 @@ cp ./desktops.js $HOME/Pictures/desktops/.
 cd $HOME/Pictures/desktops
 npm install request underscore
 node desktops.js
-rm -rvf $HOME/mysrc/node_modules desktops.js
+rm -rvf node_modules desktops.js
 
 echo "please run the bootstrap.sh file now"
