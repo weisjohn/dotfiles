@@ -15,7 +15,7 @@ git clone git://github.com/creationix/nvm.git $HOME/nvm
 nvm install 0.8.14
 
 # install global node utilties 
-npm install -g underscore vows express coffee-script request
+npm install -g coffee-script 
 
 # install z
 cd $HOME/src
@@ -25,5 +25,7 @@ git clone git://github.com/rupa/z.git
 curl -L https://get.rvm.io | bash -s stable --ruby
 
 # download all personal github repos
+npm install request
+node github_mega_clone.js
 
 echo "please run the bootstrap.sh file now"
