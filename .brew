@@ -24,5 +24,8 @@ brew install man2html
 # tab completion for some awesome stuff - http://meinit.nl/bash-completion-mac-os-x
 brew install bash-completion
 
+# github awesomeness 
+brew install hub
+
 # Remove outdated versions from the cellar
 brew cleanup
