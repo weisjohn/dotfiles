@@ -1,8 +1,8 @@
 var request = require('request'),
     u = require('underscore')
     exec = require('child_process').exec,
-    child,
-    repos;
+    child = null,
+    repos = null;
 
 request('https://api.github.com/users/weisjohn/repos', function (error, response, body) {
     if (!error && response.statusCode == 200) {
