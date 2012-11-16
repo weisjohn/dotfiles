@@ -20,7 +20,7 @@ child = exec('ssh gitolite info', function(error, stdout, stderr){
         .map(function(line) { 
             return line.split('\t')[1]; // clean up line to remove the R W\t declaration
         }).each(function(repo_name) { 
-        child = exec('git clone gitolite:' + ssh_url, function (error, stdout, stderr) {
+        child = exec('git clone gitolite:' + repo_name, function (error, stdout, stderr) {
             console.log(stdout);
             console.error(stderr);
             if (error !== null) {
