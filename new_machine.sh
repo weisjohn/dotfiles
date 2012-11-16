@@ -52,5 +52,15 @@ rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js
 cd $HOME/Downloads
 
 
+##################################################################
+# screen savers						       						 #
+##################################################################
+
+mkdir -p $HOME/Pictures/desktops
+cp ./desktops.js $HOME/Pictures/desktops/.
+cd $HOME/Pictures/desktops
+npm install request underscore
+node desktops.js
+rm -rvf $HOME/mysrc/node_modules desktops.js
 
 echo "please run the bootstrap.sh file now"
