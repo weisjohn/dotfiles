@@ -10,19 +10,17 @@ request('https://api.github.com/users/weisjohn/repos', function (error, response
         // grab all the repos from github
         repos = JSON.parse(body);
 
-    // retrive the ssh locations, process them one by one
-    u.pluck(r, 'ssh_url').each(function(ssh_url) { 
-      child = exec('git clone ' + ssh_url,
-        function (error, stdout, stderr) {
-            console.log('stdout: ' + stdout);
-            console.error('stderr: ' + stderr);
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            }
+        // retrive the ssh locations, process them one by one
+        var urls = u.pluck(r, 'ssh_url');
+
+        u.each(urls, function(ssh_url) { 
+            child = exec('git clone ' + ssh_url, function (error, stdout, stderr) {
+                console.log(stdout);
+                console.error(stderr);
+                if (error !== null) {
+                    console.log('exec error: ' + error);
+                }
+            });
         });
-    });
-
-  }
+    }
 });
-
-
