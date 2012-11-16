@@ -49,6 +49,6 @@ rm -rvf $HOME/mysrc/node_modules github_mega_clone.js
 
 cd $HOME/Downloads
 
-wget 
+
 
 echo "please run the bootstrap.sh file now"
