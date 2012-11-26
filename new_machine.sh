@@ -22,7 +22,7 @@ git clone git://github.com/creationix/nvm.git $HOME/nvm
 nvm install 0.8.14
 
 # install global node utilties 
-npm install -g coffee-script docco
+npm install -g coffee-script docco node-dev
 
 # install z
 cd $HOME/src
@@ -30,6 +30,12 @@ git clone git://github.com/rupa/z.git
 
 # install rvm 
 curl -L https://get.rvm.io | bash -s stable --ruby
+
+# install bundler, guard which are necessary for live-reload
+#gem install bundler
+#gem install guard
+#gem install guard-livereload
+
 
 ##################################################################
 # code and repos				       							 #
@@ -52,7 +58,7 @@ rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js perso
 ##################################################################
 
 cd $HOME/Downloads
-
+# TODO
 
 ##################################################################
 # wallpapers and screen savers						       		 #
