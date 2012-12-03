@@ -1,5 +1,7 @@
 #!/bin/bash
 
+function doIt() {
+
 # make default folders for code
 mkdir -p $HOME/src && mkdir -p $HOME/mysrc
 
@@ -15,11 +17,19 @@ $HOME/.brew
 
 # install pygments for docco
 sudo easy_install pygments
+# install solarized dark theme for colorized cat with pygments
+git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarized-dark-pygments
+cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packages/Pygments-1.5-py2.7.egg/pygments/styles/.
+# install solarized dark theme for ST2
+git clone git://github.com/deplorableword/textmate-solarized.git $HOME/src/textmate-solarized
+cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/Theme\ \-\ Solarized
+
+# /Users/jweis/
 
 # install nvm , node latest
 git clone git://github.com/creationix/nvm.git $HOME/nvm
 . $HOME/nvm/nvm.sh
-nvm install 0.8.14
+nvm install 0.8.15
 
 # install global node utilties 
 npm install -g coffee-script docco node-dev
@@ -30,6 +40,10 @@ git clone git://github.com/rupa/z.git
 
 # install rvm 
 curl -L https://get.rvm.io | bash -s stable --ruby
+
+# install compass and sass
+gem install sass
+gem install compass
 
 # install bundler, guard which are necessary for live-reload
 #gem install bundler
@@ -57,8 +71,11 @@ rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js perso
 # applications						       						 #
 ##################################################################
 
-cd $HOME/Downloads
+# cd $HOME/Downloads
 # TODO
+
+# setup `subl` command
+sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /bin/subl
 
 ##################################################################
 # wallpapers and screen savers						       		 #
@@ -72,3 +89,16 @@ node desktops.js
 rm -rvf node_modules desktops.js
 
 echo "please run the bootstrap.sh file now"
+}
+
+if [ "$1" == "--force" -o "$1" == "-f" ]; then
+	doIt
+else
+	echo "Applications that need to be installed: Chrome Canary, Sublime Text 2, LiveReload"
+	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		doIt
+	fi
+fi
+unset doIt

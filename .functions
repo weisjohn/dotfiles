@@ -52,6 +52,11 @@ function server() {
 }
 
 
+function sms() {
+	echo "$@" | mail 9373079375@vtext.com
+}
+
+
 # start weinre and accept a port 
 function weinre() {
 	local host="${1:-8888}"
@@ -62,3 +67,5 @@ function weinre() {
 function mi() {
 	mv $@ ~/Dropbox/www_img/.
 }
+
+
