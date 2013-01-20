@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Git functions
 function gc() {
@@ -65,7 +66,7 @@ function weinre() {
 
 # move image to dropbox www_img
 function mi() {
-	mv $@ ~/Dropbox/www_img/.
+	mv "$@" ~/Dropbox/www_img/.
 }
 
 
