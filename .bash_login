@@ -2,7 +2,7 @@
 export PATH="$HOME/bin:$PATH"
 
 # git autocompletion
-source ~/git-completion.bash
+source ~/.git-completion.bash
 
 # gives tab completion for lots o things, especially ssh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
