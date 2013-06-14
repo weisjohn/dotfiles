@@ -70,3 +70,86 @@ function mi() {
 }
 
 
+
+# hex to decimal
+function h2d() {
+  echo "ibase=16; $@"|bc
+}
+
+# decimal to hex 
+function d2h() {
+  echo "obase=16; $@"|bc
+}
+
+
+# resolve SSH hostname entries to IP addresses
+function resolve() {
+    #cat /etc/hosts | grep $@
+    #cat ~/.ssh/config | grep $@
+    linenum=`grep -n $@ ~/.ssh/config |cut -f1 -d:`
+    linenum=$((linenum+1))
+    echo `sed -n ${linenum}p ~/.ssh/config`
+}
+
+# discover IP addresses to SSH hostnames
+function discover() {
+    #cat /etc/hosts | grep $@
+    #cat ~/.ssh/config | grep $@
+    linenum=`grep -n $@ ~/.ssh/config |cut -f1 -d:`
+    linenum=$((linenum-1))
+    echo `sed -n ${linenum}p ~/.ssh/config`
+}
+
+
+function new_term() { 
+    TERM_PATH=`pwd`
+
+    if [ $# -eq 1 ]; then
+        NEW_CMD=$1
+    else
+        NEW_CMD="clear"
+    fi
+
+    export TERM_PATH
+    export NEW_CMD
+
+    bash -c '
+    /usr/bin/osascript <<EOF
+    activate application "Terminal"
+    tell application "System Events"
+        keystroke "t" using {command down}
+    end tell
+    tell application "Terminal"
+        repeat with win in windows
+            try
+                if get frontmost of win is true then
+                    do script "cd $TERM_PATH; $NEW_CMD;" in (selected tab of win)
+                end if
+            end try
+        end repeat
+    end tell
+EOF' 2>&1 >> /dev/null
+}
+
+function dev() {
+
+    if [ $# -eq 1 ]; then
+        _z 2>&1 $1
+    fi
+
+    dev_conf=`pwd`/.dev
+    if [ ! -f $dev_conf ]; then
+        echo "no devconf found"
+        commands=("node-dev . | bunyan" "git pull && git status && subl .")
+    else 
+        commands=$(cat dev_conf)
+    fi
+
+    for ix in ${!commands[*]}; do
+        cmd=${commands[ix]}
+        echo $cmd
+        new_term "$cmd"
+    done
+}
+
+
