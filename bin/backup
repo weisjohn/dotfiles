@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# TODO: inspect the /Volumes/ area for a MAXTOR_0 or a MAXTOR_1
+
+drive="/Volumes/MAXTOR_1/jweis"
+
+rsync -rtv --modify-window=2 ~/.ssh/ $drive/.ssh
+rsync -rtv --modify-window=2 ~/mysrc/ $drive/mysrc
