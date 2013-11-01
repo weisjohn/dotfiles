@@ -29,10 +29,10 @@ cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ 
 # install nvm , node latest
 git clone git://github.com/creationix/nvm.git $HOME/nvm
 . $HOME/nvm/nvm.sh
-nvm install 0.8.15
+nvm install 0.10.21
 
 # install global node utilties 
-npm install -g coffee-script docco node-dev
+npm install -g coffee-script docco node-dev bower 
 
 # install z
 cd $HOME/src
@@ -56,15 +56,15 @@ gem install compass
 ##################################################################
 
 # download all my public github repos and my private gitolite repos into mysrc folder
-cp ./github_mega_clone.js $HOME/mysrc
-cp ./gitolite_mega_clone.js $HOME/mysrc
-cp ./personal_repos.js $HOME/mysrc
-cd $HOME/mysrc
-npm install request underscore
-node github_mega_clone.js
-node gitolite_mega_clone.js
-node personal_repos.js
-rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js personal_repos.js
+#cp ./github_mega_clone.js $HOME/mysrc
+#cp ./gitolite_mega_clone.js $HOME/mysrc
+#cp ./personal_repos.js $HOME/mysrc
+#cd $HOME/mysrc
+#npm install request underscore
+#node github_mega_clone.js
+#node gitolite_mega_clone.js
+#node personal_repos.js
+#rm -rvf $HOME/mysrc/node_modules github_mega_clone.js github_mega_clone.js personal_repos.js
 
 
 ##################################################################
