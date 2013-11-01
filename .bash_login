@@ -23,8 +23,8 @@ unset file
 #export EDITOR='subl -w'
 
 # nvm , with tab completion
-. ~/nvm/nvm.sh
-nvm use 0.8.14
+. ~/.nvm/nvm.sh
+nvm use 0.10.21
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
