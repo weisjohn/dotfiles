@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: don't wget, ack, git, etc if we already have it...
+
 # Make sure we’re using the latest Homebrew
 brew update
 
