@@ -19,7 +19,7 @@ $HOME/.brew
 sudo easy_install pygments
 # install solarized dark theme for colorized cat with pygments
 git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarized-dark-pygments
-cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packages/Pygments-1.5-py2.7.egg/pygments/styles/.
+cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packages/Pygments-1.6-py2.7.egg/pygments/styles/.
 # install solarized dark theme for ST2
 git clone git://github.com/deplorableword/textmate-solarized.git $HOME/src/textmate-solarized
 cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/Theme\ \-\ Solarized
@@ -27,8 +27,8 @@ cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ 
 # /Users/jweis/
 
 # install nvm , node latest
-git clone git://github.com/creationix/nvm.git $HOME/nvm
-. $HOME/nvm/nvm.sh
+curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+source $HOME/.nvm/nvm.sh
 nvm install 0.10.21
 
 # install global node utilties 
