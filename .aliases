@@ -43,5 +43,6 @@ alias c='pygmentize -O style=solarized -f console256 -g'
 	# for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
 
-alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log"
+
+alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
