@@ -31,3 +31,7 @@ brew install hub
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+
+# install mongodb
+brew install mongodb
