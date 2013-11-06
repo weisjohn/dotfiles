@@ -46,3 +46,7 @@ alias picreate="~/src/phonegap/lib/ios/bin/create"
 
 alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
+
+alias redis-start="redis-server /usr/local/etc/redis.conf 2>&1 > /dev/null &"
+alias redis-stop="redis-cli -a $REDIS_AUTH SHUTDOWN"
+alias redis="redis-cli -a $REDIS_AUTH"
