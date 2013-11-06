@@ -14,7 +14,7 @@ brew install wget --enable-iri
 # brew ack
 brew install ack
 
-# git 
+# macosx ships with git ~ 1.7.? , get the latest
 brew install git
 
 # spark - https://github.com/holman/spark
@@ -29,9 +29,13 @@ brew install bash-completion
 # github awesomeness 
 brew install hub
 
+# install mongodb
+brew install mongodb
+
+# jq cli
+brew install jq
+
 # Remove outdated versions from the cellar
 brew cleanup
 
 
-# install mongodb
-brew install mongodb
