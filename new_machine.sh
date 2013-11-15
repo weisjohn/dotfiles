@@ -32,7 +32,7 @@ source $HOME/.nvm/nvm.sh
 nvm install 0.10.21
 
 # install global node utilties 
-npm install -g coffee-script docco node-dev bower bunyan
+npm install -g coffee-script docco node-dev bower bunyan docserv npmd
 
 # install z
 cd $HOME/src

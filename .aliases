@@ -31,6 +31,11 @@ alias gsup="git pull && git submodule update"
 # these could be put in .gitconfig
 alias gs="git status"
 
+
+# nodes 
+alias enpm='npm --registry http://registry.npmjs.eu'
+alias dpm='npmd'
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
