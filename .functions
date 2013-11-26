@@ -153,3 +153,30 @@ function dev() {
 }
 
 
+function trust() {
+
+    CERT=/tmp/certfile.txt
+    REMHOST=$1          # Host to pull cert from
+    REMPORT=${2:-443}   # Set default of 443
+
+    if [ -z "$1" ]; then
+        echo "Domain must be specified"
+        return 1;
+    fi
+     
+    exec 6>&1           # Link file descriptor #6 with stdout.
+    exec > $CERT        # stdout replaced with file
+     
+    # All output from commands in this block sent to file $CERT
+    echo | openssl s_client -connect ${REMHOST}:${REMPORT} 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+     
+    # ----------------------------------------------------------- #
+     
+    exec 1>&6 6>&-      # Restore stdout and close file descriptor #6.
+    certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "$REMHOST" -i $CERT
+    echo
+    echo "== Certificate for $REMHOST added == "
+    rm $CERT
+    # exit 0
+}
+
