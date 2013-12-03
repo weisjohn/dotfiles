@@ -1,14 +1,17 @@
 #!/bin/bash
 
+# allow sudo aliases
+alias sudo="sudo "
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+    colorflag="--color"
 else # OS X `ls`
-	colorflag="-G"
+    colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -33,8 +36,11 @@ alias gs="git status"
 
 
 # nodes 
-alias enpm='npm --registry http://registry.npmjs.eu'
+alias enpm='npm --registry http://registry.npmjs.eu '
 alias dpm='npmd'
+alias nd='node-dev'
+alias ndb='node-dev . | bunyan'
+alias sndb='sudo -E node-dev . | bunyan'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -45,13 +51,15 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias c='pygmentize -O style=solarized -f console256 -g'
 
 # phone gap aliases
-	# for ios (pi = Phonegap iOS)
+    # for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
 
 
-alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest"
+alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest --auth"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
 
 alias redis-start="redis-server /usr/local/etc/redis.conf 2>&1 > /dev/null &"
 alias redis-stop="redis-cli -a $REDIS_AUTH SHUTDOWN"
 alias redis="redis-cli -a $REDIS_AUTH"
+
+alias postgres-start="postgres -D /usr/local/var/postgres"
