@@ -65,3 +65,9 @@ build/*
 *.xcworkspace
 xcuserdata
 
+
+
+# Node #
+########
+node_modules
+npm-debug.log
