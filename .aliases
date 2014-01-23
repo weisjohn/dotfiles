@@ -9,9 +9,9 @@ alias ...="cd ../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
+	colorflag="--color"
 else # OS X `ls`
-    colorflag="-G"
+	colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -31,8 +31,7 @@ alias src="source ~/.bash_login"
 # this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gsup="git pull && git submodule update"
-# these could be put in .gitconfig
-alias gs="git status"
+alias gu="git push --set-upstream origin $(git branch | awk '/^\* / { print $2 }') >> /dev/null"
 
 
 # nodes 
@@ -41,6 +40,7 @@ alias dpm='npmd'
 alias nd='node-dev'
 alias ndb='node-dev . | bunyan'
 alias sndb='sudo -E node-dev . | bunyan'
+alias nodedocs='wget -pm http://nodejs.org/api/'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -51,9 +51,12 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias c='pygmentize -O style=solarized -f console256 -g'
 
 # phone gap aliases
-    # for ios (pi = Phonegap iOS)
+	# for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
 
+
+alias mysql-start="mysql.server start"
+alias mysql-stop="mysql.server stop"
 
 alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest --auth"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""

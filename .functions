@@ -78,6 +78,11 @@ function mi() {
 }
 
 
+function mi-dir() {
+    ssh sonlite mkdir -p /home/sonlite/webapps/www_img/$@
+    scp -r "$@" sonlite:/home/sonlite/webapps/www_img/$@
+}
+
 
 # hex to decimal
 function h2d() {
