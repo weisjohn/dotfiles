@@ -39,6 +39,7 @@ alias enpm='npm --registry http://registry.npmjs.eu '
 alias dpm='npmd'
 alias nd='node-dev'
 alias ndb='node-dev . | bunyan'
+alias nb="node . | bunyan"
 alias sndb='sudo -E node-dev . | bunyan'
 alias nodedocs='wget -pm http://nodejs.org/api/'
 
@@ -66,3 +67,11 @@ alias redis-stop="redis-cli -a $REDIS_AUTH SHUTDOWN"
 alias redis="redis-cli -a $REDIS_AUTH"
 
 alias postgres-start="postgres -D /usr/local/var/postgres"
+
+
+# infoz
+alias codez="node -e 'console.dir(require(\"http\").STATUS_CODES)' | c"
+function status() {
+    codez | grep -e "$1"
+}
+
