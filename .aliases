@@ -70,7 +70,7 @@ alias postgres-start="postgres -D /usr/local/var/postgres"
 
 
 # infoz
-alias codez="node -e 'console.dir(require(\"http\").STATUS_CODES)' | c"
+alias codez="node -p 'require(\"http\").STATUS_CODES' | c"
 function status() {
     codez | grep -e "$1"
 }
