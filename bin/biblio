@@ -19,23 +19,21 @@ if [ ! -f $1 ]; then
     echo "File not found"
 fi
 
-sources=$(grep $1 -e "\[[^0-9\r\n]")
-if [ -z $sources ]; then
-    echo "No sources"
-    exit 0
-fi
-
 # truncate the tmp file
->> /tmp/bibliography
+tmp=/tmp/bibliography
+> $tmp
 
-# build up the bibliography
-for source in $sources; do
-    echo $source
+# build up the bibliograph into the tmp file
+grep $1 -e "\[[^0-9\r\n]" | while read -r line; do
+    number=$(echo "$line" | cut -d ']' -f 2,3)
+    reference=$(echo "$line" | cut -d '[' -f 2 | sed 's/]//')
+    encoded=$(echo "$reference" | sed 's/ /%20/')    
+    echo "$number: $url$encoded     \"$reference\"" >> $tmp
 done
 
+# append the tmp file into the document
+cat $tmp >> $1
 
-
-# TODO: mix in the references
+# TODO: find out if there already is a reference section in the bottom, and then don't insert
 exit
 references=$(grep $1 -e "^\[[0-9]")
-
