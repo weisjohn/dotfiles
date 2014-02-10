@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# generate a bibliography from a .md link reference
+# insert it into the bottom of the page
+
 # base url for bible references
 url="http://www.biblegateway.com/passage/?version=ESV&interface=print&search="
 # allow environment overrides
@@ -7,9 +10,8 @@ if [ ! -z $BIBLIO_URL ]; then
     url=$BIBLIO_URL
 fi
 
-# generate a bibliography from a .md link reference
-# insert it into the bottom of the page
 
+# validation
 if [ -z $1 ]; then
     echo "File not specified"
     exit 255
@@ -20,7 +22,7 @@ if [ ! -f $1 ]; then
 fi
 
 # truncate the tmp file
-tmp=/tmp/bibliography
+tmp=/tmp/biblio
 > $tmp
 
 # build up the bibliograph into the tmp file
@@ -35,5 +37,4 @@ done
 cat $tmp >> $1
 
 # TODO: find out if there already is a reference section in the bottom, and then don't insert
-exit
-references=$(grep $1 -e "^\[[0-9]")
+#references=$(grep $1 -e "^\[[0-9]")
