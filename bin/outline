@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# expand out an outline in a Markdown document to headers with document areas
+
+
+# validation
+if [ -z $1 ]; then
+    echo "File not specified"
+    exit 255
+fi
+
+if [ ! -f $1 ]; then
+    echo "File not found"
+fi
+
+
+# find the "outline" line number
+skip=$(grep $1 -e "Outline" -n | cut -d ':' -f 1)
+
+# truncate the tmp file
+tmp=/tmp/outline
+> $tmp
+
+# find all the outline elements after the outline line number
+sed -n "$skip,\$p" < $1 | grep -e '- ' | while read -r line; do
+    headline=$(echo $line | sed 's/\-/###/')
+
+    # add a headline for each bullet in the outline, with x '\n's after
+    for i in {1..3}; do 
+        echo >> $tmp
+    done
+
+    echo $headline >> $tmp
+
+done;
+
+# add a few lines at the bottom for good measure
+echo >> $tmp
+echo >> $tmp
+
+# append the tmp file into the document
+cat $tmp >> $1
