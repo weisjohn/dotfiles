@@ -24,7 +24,7 @@ unset file
 
 # nvm , with tab completion
 . ~/.nvm/nvm.sh
-nvm use 0.10.21
+nvm use 0.10.26
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
