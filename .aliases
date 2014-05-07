@@ -9,9 +9,9 @@ alias ...="cd ../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+    colorflag="--color"
 else # OS X `ls`
-	colorflag="-G"
+    colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -25,8 +25,10 @@ alias ll="ls -la ${colorflag}"
 alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
-
+# tools
 alias src="source ~/.bash_login"
+alias rand="dd if=/dev/urandom bs=512 count=1 2> /dev/null | md5"
+alias crand="rand | pbcopy"
 
 # this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
@@ -52,21 +54,39 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias c='pygmentize -O style=solarized -f console256 -g'
 
 # phone gap aliases
-	# for ios (pi = Phonegap iOS)
+    # for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
 
 
+# databases
+
 alias mysql-start="mysql.server start"
 alias mysql-stop="mysql.server stop"
+
 
 alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest --auth"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
 
 alias redis-start="redis-server /usr/local/etc/redis.conf 2>&1 > /dev/null &"
-alias redis-stop="redis-cli -a $REDIS_AUTH SHUTDOWN"
-alias redis="redis-cli -a $REDIS_AUTH"
+alias redis-stop="redis-cli -a $REDIS_AUTH -p 6379 SHUTDOWN"
+alias redis="redis-cli -a $REDIS_AUTH -p 6379"
 
 alias postgres-start="postgres -D /usr/local/var/postgres"
+
+
+
+# mongroup
+alias mg="mongroup -c $MGCONFIG"
+
+# Add tab completion for mg
+function get_services () {
+    COMPREPLY=()
+    local services=$(cat $MGCONFIG | grep " = " | cut -d '=' -f 1 | grep -v "logs" | grep -v "pids")
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $( compgen -W "$services" -- $cur  ))
+    return 0
+}
+complete -F "get_services" "mg"
 
 
 # infoz
