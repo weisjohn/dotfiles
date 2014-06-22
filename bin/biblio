@@ -26,10 +26,10 @@ tmp=/tmp/biblio
 > $tmp
 
 # build up the bibliograph into the tmp file
-grep $1 -e "\[[^0-9\r\n]" | while read -r line; do
+grep $1 -e "\[" | while read -r line; do
     number=$(echo "$line" | cut -d ']' -f 2,3)
     reference=$(echo "$line" | cut -d '[' -f 2 | sed 's/]//')
-    encoded=$(echo "$reference" | sed 's/ /%20/')    
+    encoded=$(echo "$reference" | sed 's/ /%20/g')    
     echo "$number: $url$encoded     \"$reference\"" >> $tmp
 done
 
