@@ -4,6 +4,9 @@ export PATH="$HOME/bin:$PATH"
 # git autocompletion
 source ~/.git-completion.bash
 
+# docker autocompletion
+source ~/.docker.bash
+
 # gives tab completion for lots o things, especially ssh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
