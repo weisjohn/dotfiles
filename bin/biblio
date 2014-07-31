@@ -25,6 +25,16 @@ fi
 tmp=/tmp/biblio
 > $tmp
 
+# variables for idempotence
+start_delim='<!-- biblio_start -->'
+start_regex="^$start_delim$"
+end_delim='<!-- biblio_end -->'
+end_regex="^$end_delim$"
+
+# indicate start of generated biblio
+echo $start_delim >> $tmp
+echo >> $tmp
+
 # build up the bibliograph into the tmp file
 grep -P '^\[[1-9a-zA-z]*?.*?\[' $1 | while read -r line; do
     number=$(echo "$line" | cut -d ']' -f 2,3)
@@ -33,8 +43,28 @@ grep -P '^\[[1-9a-zA-z]*?.*?\[' $1 | while read -r line; do
     echo "$number: $url$encoded     \"$reference\"" >> $tmp
 done
 
-# append the tmp file into the document
-cat $tmp >> $1
+# indicate end of generated biblio
+echo >> $tmp
+echo $end_delim >> $tmp
 
-# TODO: find out if there already is a reference section in the bottom, and then don't insert
-#references=$(grep $1 -e "^\[[0-9]")
+
+# determine if the file already contains a bibliography
+if grep -q "$start_delim" $1; then
+    # merely replace that section
+    alttmp=/tmp/biblio_replace
+    > $alttmp
+    # sed -e "/$start_delim/,/$end_delim/d; {r $tmp" -e 'p;}' $1 > $alttmp
+    # sed -n '/foo/{:a;N;/bar/!ba;N;s/.*\n/REPLACEMENT\n/};p' file
+    tmpvar=$(cat $tmp)
+    # TODO:
+    # http://stackoverflow.com/questions/11799432/why-is-my-sed-r-file-d-function-not-working
+    # http://fahdshariff.blogspot.com/2012/12/sed-mutli-line-replacement-between-two.html 
+    ## sed -n "/$start_delim/{:a;N;/$end_delim/!ba;N;s/.*\n/$tmpvar\n/};p" $1 >> $alttmp
+    ## cat $alttmp > $1
+
+    # TODO: remove this 
+    cat $tmp >> $1
+else 
+    # append the tmp file into the document
+    cat $tmp >> $1
+fi
