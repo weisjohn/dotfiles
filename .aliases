@@ -9,9 +9,9 @@ alias ...="cd ../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
+	colorflag="--color"
 else # OS X `ls`
-    colorflag="-G"
+	colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -54,7 +54,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias c='pygmentize -O style=solarized -f console256 -g'
 
 # phone gap aliases
-    # for ios (pi = Phonegap iOS)
+	# for ios (pi = Phonegap iOS)
 alias picreate="~/src/phonegap/lib/ios/bin/create"
 
 
@@ -65,7 +65,9 @@ alias mysql-stop="mysql.server stop"
 
 
 alias mongo-start="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest --auth"
+alias mongo-noauth="mongod --fork --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest"
 alias mongo-stop="mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
+
 
 alias redis-start="redis-server /usr/local/etc/redis.conf 2>&1 > /dev/null &"
 alias redis-stop="redis-cli -a $REDIS_AUTH -p 6379 SHUTDOWN"
@@ -73,6 +75,10 @@ alias redis="redis-cli -a $REDIS_AUTH -p 6379"
 
 alias postgres-start="postgres -D /usr/local/var/postgres"
 
+
+# phantomjs
+
+alias p="phantomjs"
 
 
 # mongroup
@@ -95,3 +101,5 @@ function status() {
     codez | grep -e "$1"
 }
 
+# blink(1) mk2 
+alias b="blink1-tool"
