@@ -33,4 +33,5 @@ __git_shortcut  glp   log -p
 __git_shortcut  gls   log --stat
 __git_shortcut  gm 	  merge --no-ff
 __git_shortcut  gp    pull --recurse-submodules
+__git_shortcut  gs    status
 __git_shortcut  gu    push
