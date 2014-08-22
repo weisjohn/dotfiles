@@ -10,7 +10,7 @@ mkdir -p $HOME/src && mkdir -p $HOME/mysrc
 ##################################################################
 
 # install brew
-ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSkL https://raw.githubusercontent.com/mxcl/homebrew/go/install)"
 
 # run the .brew file, this gives us git, wget, ack
 $HOME/.brew
