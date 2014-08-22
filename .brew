@@ -36,6 +36,8 @@ brew install jq
 # mysql
 brew install mysql
 
+# postgres
+brew install postgresql
 
 # Remove outdated versions from the cellar
 brew cleanup
