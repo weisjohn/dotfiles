@@ -24,8 +24,9 @@ unset file
 #export EDITOR='subl -w'
 
 # nvm , with tab completion
+export NVM_DIR="/Users/jweis/.nvm"
 . ~/.nvm/nvm.sh
-nvm use 0.10.26
+nvm use 0.10.31
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
