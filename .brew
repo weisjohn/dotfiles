@@ -39,6 +39,15 @@ brew install mysql
 # postgres
 brew install postgresql
 
+# phantomjs
+brew install phantomjs
+
+# ffmpeg
+brew install ffmpeg
+
+# imagemagick
+brew install imagemagick
+
 # Remove outdated versions from the cellar
 brew cleanup
 
