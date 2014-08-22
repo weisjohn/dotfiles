@@ -22,7 +22,7 @@ git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarize
 cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packages/Pygments-1.6-py2.7.egg/pygments/styles/.
 # install solarized dark theme for ST2
 git clone git://github.com/deplorableword/textmate-solarized.git $HOME/src/textmate-solarized
-cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/Theme\ \-\ Solarized
+sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ \-\ Solarized
 
 # /Users/jweis/
 
@@ -75,7 +75,7 @@ gem install compass
 # TODO
 
 # setup `subl` command
-sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /bin/subl
+sudo ln -s /Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl /bin/subl
 
 ##################################################################
 # wallpapers and screen savers						       		 #
