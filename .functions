@@ -72,11 +72,11 @@ function weinre() {
 	node /usr/local/lib/node_modules/weinre/weinre --boundHost=$host
 }
 
-# move image to dropbox www_img
+# scp the image up to my server in the sky
 function mi() {
-	mv "$@" ~/Dropbox/www_img/.
+    scp "$@" sonlite:/home/sonlite/webapps/www_img/.
+    rm "$@"
 }
-
 
 function mi-dir() {
     ssh sonlite mkdir -p /home/sonlite/webapps/www_img/$@
