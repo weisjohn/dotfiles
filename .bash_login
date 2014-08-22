@@ -30,7 +30,7 @@ nvm use 0.10.31
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
-export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:/Users/jweis/.nvm/v0.10.26/lib/node_modules"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:/Users/jweis/.nvm/v0.10.31/lib/node_modules"
 export NODE_ENV="development"
 export NODE_DEV_CLEARSCREEN=false
 
