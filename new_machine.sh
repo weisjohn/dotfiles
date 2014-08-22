@@ -27,9 +27,9 @@ cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ 
 # /Users/jweis/
 
 # install nvm , node latest
-curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
 source $HOME/.nvm/nvm.sh
-nvm install 0.10.21
+nvm install 0.10.31
 
 # install global node utilties 
 npm install -g coffee-script docco node-dev bower bunyan docserv npmd
