@@ -32,7 +32,7 @@ source $HOME/.nvm/nvm.sh
 nvm install 0.10.31
 
 # install global node utilties 
-npm install -g bower browserify bunyan coffee-script docco docserv fixpack grunt jshint jslint json kamino madeye mocha node-debug node-dev node-inspector npmd  pageres tessel uglifyjs2 yo yuidoc
+npm install -g bower browserify bunyan coffee-script docco docserv fixpack grunt jshint jslint json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
 
 
 
