@@ -48,9 +48,6 @@ brew install postgresql
 # phantomjs
 brew install phantomjs
 
-# pil
-brew install pil
-
 # ffmpeg
 brew install ffmpeg
 
