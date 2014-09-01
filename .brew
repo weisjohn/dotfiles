@@ -30,17 +30,26 @@ brew install hub
 # install mongodb
 brew install mongodb
 
+# redis
+brew install redis
+
 # jq cli
 brew install jq
 
 # mysql
 brew install mysql
 
+# mercurial
+brew install hg
+
 # postgres
 brew install postgresql
 
 # phantomjs
 brew install phantomjs
+
+# pil
+brew install pil
 
 # ffmpeg
 brew install ffmpeg
@@ -50,5 +59,6 @@ brew install imagemagick
 
 # Remove outdated versions from the cellar
 brew cleanup
+
 
 
