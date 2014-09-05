@@ -74,6 +74,7 @@ function weinre() {
 
 # scp the image up to my server in the sky
 function mi() {
+    chmod 644 "$@"
     scp "$@" sonlite:/home/sonlite/webapps/www_img/.
     rm "$@"
 }
