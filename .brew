@@ -6,6 +6,9 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+# better unix utils
+brew install coreutils
+
 # Install wget with IRI support
 brew install wget --enable-iri
 
