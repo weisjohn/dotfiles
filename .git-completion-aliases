@@ -20,9 +20,9 @@ __git_shortcut () {
 }
 
 __git_shortcut  ga    add
-__git_shortcut  gb    branch            # I use this one.
+__git_shortcut  gb    branch
 __git_shortcut  gba   branch -a
-__git_shortcut  go    checkout          # and I use this one, too.
+
 __git_shortcut  gci   commit -v
 __git_shortcut  gcia  commit '-a -v'
 __git_shortcut  gd    diff
@@ -32,6 +32,11 @@ __git_shortcut  gf    fetch
 __git_shortcut  glp   log -p
 __git_shortcut  gls   log --stat
 __git_shortcut  gm 	  merge --no-ff
+# no shortcut for go, because of `go(1)`
 __git_shortcut  gp    pull --recurse-submodules
+__git_shortcut  gr    rebase
+__git_shortcut  grm   rebase master
 __git_shortcut  gs    status
-__git_shortcut  gu    push
+__git_shortcut  gsa   stash apply
+__git_shortcut  gt    checkout
+__git_shortcut  gu    push -u
