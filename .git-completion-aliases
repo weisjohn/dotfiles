@@ -15,7 +15,7 @@ eval "
 
 __git_shortcut () {
     type _git_$2_shortcut &>/dev/null || __define_git_completion $1 $2
-    alias $1="git $2 $3"
+    alias $1="git $2 $3 $4"
     complete -o default -o nospace -F _git_$2_shortcut $1
 }
 
@@ -27,6 +27,7 @@ __git_shortcut  gci   commit -v
 __git_shortcut  gcia  commit '-a -v'
 __git_shortcut  gd    diff
 __git_shortcut  gdc   diff --cached
+__git_shortcut  gdcs  diff --stat --cached
 __git_shortcut  gds   diff --stat
 __git_shortcut  gf    fetch
 __git_shortcut  glp   log -p
@@ -36,7 +37,10 @@ __git_shortcut  gm 	  merge --no-ff
 __git_shortcut  gp    pull --recurse-submodules
 __git_shortcut  gr    rebase
 __git_shortcut  grm   rebase master
+__git_shortcut  grhh  reset HEAD --hard
+__git_shortcut  grpo  remote prune origin
 __git_shortcut  gs    status
 __git_shortcut  gsa   stash apply
 __git_shortcut  gt    checkout
 __git_shortcut  gu    push -u
+__git_shortcut  guf   push -u --force
