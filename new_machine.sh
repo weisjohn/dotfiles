@@ -15,6 +15,9 @@ ruby -e "$(curl -fsSkL https://raw.githubusercontent.com/mxcl/homebrew/go/instal
 # run the .brew file, this gives us git, wget, ack
 $HOME/.brew
 
+# install git extras
+(cd /tmp && git clone --depth 1 https://github.com/tj/git-extras.git && cd git-extras && sudo make install)
+
 # install pygments for docco
 sudo easy_install pygments
 # install solarized dark theme for colorized cat with pygments
