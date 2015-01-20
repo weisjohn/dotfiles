@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# move to the correct directory
+cd ~/Desktop/c25k
+
+# find the latest day in the folder
+old=$(ls . | tail -n 1)
+position=$(echo $old | cut -d '.' -f 1)
+
+# find out which day I was on
+week=$(echo $position | cut -d 'd' -f 1 | cut -d 'w' -f 2)
+day=$(echo $position | cut -d 'd' -f 2)
+
+# calculate next new day
+if [[ $day -eq '3' ]]; then
+    day=1
+    week=$((week+1))
+else
+    day=$((day+1))
+fi
+
+# append them together
+new="w$week""d$day.txt"
+
+# construct the new file
+cat >> $new <<EOL 
+
+speed / seconds
+
+time 
+miles 
+fat cals 
+cals 
+EOL
+
+# open up subl to this directoryc
+subl .
+subl $old
+subl $new
