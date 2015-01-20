@@ -15,7 +15,7 @@ fi
 
 
 # find the "outline" line number
-skip=$(grep $1 -e "Outline" -n | cut -d ':' -f 1)
+skip=$(grep -i $1 -e "outline" -n | cut -d ':' -f 1)
 
 # truncate the tmp file
 tmp=/tmp/outline
