@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# start a new markdown file for a note
+
+# replace spaces with underscores
+name=${1// /_}
+
+# replace quotes with nothing
+name=${name/\"/}
+
+# transform all uppercase characters to lowercase ones
+name=$(echo $name | tr '[:upper:]' '[:lower:]').md
+
+# put the markdown h1 at the beginning of the file, simulateneously creating it
+echo "# $1" >> $name
+cat >> $name <<DELIM
+
+## Readings
+
+ - (ESV)
+
+## Outline
+
+ - 
+
+DELIM
+
+# open the file with the user's editor
+$EDITOR $name
