@@ -34,9 +34,6 @@ export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:/Users/jweis/.
 export NODE_ENV="local"
 export NODE_DEV_CLEARSCREEN=false
 
-# gvm 
-source $HOME/.gvm/scripts/gvm
-
 
 # run z 
 . ~/src/z/z.sh
