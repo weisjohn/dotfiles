@@ -37,7 +37,8 @@ nvm install 0.10.31
 # install global node utilties 
 npm install -g bower browserify bunyan coffee-script docco docserv fixpack grunt jshint jslint json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
 
-
+# install gvm
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
 
 # install z

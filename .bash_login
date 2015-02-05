@@ -52,7 +52,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # go 
-export GOPATH=$HOME/gocode
+export GOPATH="$HOME/src:$HOME/mysrc"
 export PATH=$PATH:$GOPATH/bin/
 
 # dotfiles bin added to the path, this technique comes from Ben Alman's dotfiles repo
