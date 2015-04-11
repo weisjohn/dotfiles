@@ -79,6 +79,16 @@ function mi() {
     rm "$@"
 }
 
+function instagram() {
+    rsync -az /Users/jweis/Dropbox/ifttt/instagram/* sonlite:/home/sonlite/webapps/www_img/instagram
+}
+
+function motivate() {
+    chmod 644 "$@"
+    scp "$@" sonlite:/home/sonlite/webapps/www_img/motivate/.
+    rm "$@"
+}
+
 # move an entire folder up to the sky
 function mi-dir() {
     ssh sonlite mkdir -p /home/sonlite/webapps/www_img/$@
@@ -176,11 +186,44 @@ function zfind() {
 
     # sort of hacky
     here=`pwd`
-    z "$1"
+    _z "$1"
     there=`pwd`
     cd $here
 
     echo $there
     
+}
+
+
+# simple thing to get me to journal more
+function today() {
+    monthpath="/Users/jweis/mysrc/weisjohn/journal/"$(date "+%Y/%m/")
+    mkdir -p $monthpath
+    cd $monthpath
+    filename=$(date "+%d.md")
+    touch $filename
+    subl $filename
+}
+
+function yesterday() {
+    monthpath="/Users/jweis/mysrc/weisjohn/journal/"$(date -v -1d "+%Y/%m/")
+    mkdir -p $monthpath
+    cd $monthpath
+    filename=$(date -v -1d "+%d.md")
+    touch $filename
+    subl $filename
+}
+
+
+# golang
+function gdoc() {
+    godoc $1 | pygmentize -O style=solarized -f console256 -g
+}
+
+
+# base64 encode an image onto your clipboard
+function b64() {
+    openssl base64 -in $1 | pbcopy
+    # TODO: this comes out all gross like, pull the strings together and make it awesome
 }
 
