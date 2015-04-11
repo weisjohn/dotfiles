@@ -57,6 +57,9 @@ brew install ffmpeg
 # imagemagick
 brew install imagemagick
 
+# fswatch
+brew install fswatch
+
 # Remove outdated versions from the cellar
 brew cleanup
 
