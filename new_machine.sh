@@ -10,9 +10,10 @@ mkdir -p $HOME/src && mkdir -p $HOME/mysrc
 ##################################################################
 
 # install brew
-ruby -e "$(curl -fsSkL https://raw.githubusercontent.com/mxcl/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # run the .brew file, this gives us git, wget, ack
+chmod u+x $HOME/.brew
 $HOME/.brew
 
 # install git extras
@@ -30,12 +31,13 @@ sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Subl
 # /Users/jweis/
 
 # install nvm , node latest
-curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | sudo bash
 source $HOME/.nvm/nvm.sh
-nvm install 0.10.31
+sudo -e nvm install 0.12.6
+nvm use 0.12.6
 
 # install global node utilties 
-npm install -g bower browserify bunyan coffee-script docco docserv fixpack grunt jshint jslint json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
+npm install -g bower browserify bunyan coffee-script docco docserv fixpack gulp jshint json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
 
 # install gvm
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -101,7 +103,7 @@ echo "please run the bootstrap.sh file now"
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
 else
-	echo "Applications that need to be installed: Chrome Canary, Sublime Text 2, LiveReload"
+	echo "Applications that need to be installed: Chrome Canary, Sublime Text 3, LiveReload"
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
