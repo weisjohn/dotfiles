@@ -84,7 +84,7 @@ gem install compass
 # TODO
 
 # setup `subl` command
-sudo ln -s /Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl /bin/subl
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /bin/subl
 
 ##################################################################
 # wallpapers and screen savers						       		 #
