@@ -28,6 +28,12 @@ cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packa
 git clone git://github.com/deplorableword/textmate-solarized.git $HOME/src/textmate-solarized
 sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ \-\ Solarized
 
+
+# install mon & mongroup
+(mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/tj/mon/archive/master.tar.gz | tar zx --strip 1 && make install && rm -rf /tmp/mon)
+(mkdir /tmp/mongroup && cd /tmp/mongroup && curl -L# https://github.com/Ensequence/mongroup/archive/master.tar.gz | tar zx --strip 1 && make install)
+
+
 # /Users/jweis/
 
 # install nvm , node latest
