@@ -65,8 +65,6 @@ gem install compass
 ##################################################################
 
 # download all my public github repos and my private gitolite repos into mysrc folder
-#cp ./github_mega_clone.js $HOME/mysrc
-#cp ./gitolite_mega_clone.js $HOME/mysrc
 #cp ./personal_repos.js $HOME/mysrc
 #cd $HOME/mysrc
 #npm install request underscore
