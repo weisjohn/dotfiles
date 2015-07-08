@@ -25,13 +25,13 @@ export EDITOR='subl'
 
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
-. ~/.nvm/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export NODE_VERSION="v0.12.6"
 nvm use $NODE_VERSION
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # node configurations
-export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:$HOME/.nvm/$NODE_VERSION/lib/node_modules"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:$HOME/.nvm/versions/$NODE_VERSION/lib/node_modules"
 export NODE_ENV="local"
 export NODE_DEV_CLEARSCREEN=false
 
