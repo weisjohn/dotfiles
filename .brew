@@ -60,8 +60,13 @@ brew install imagemagick
 # fswatch
 brew install fswatch
 
+# tree
+brew install tree
+
+# git-extras
+brew install git-extras
+
 # Remove outdated versions from the cellar
 brew cleanup
-
 
 
