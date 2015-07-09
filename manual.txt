@@ -1,0 +1,6 @@
+
+ - setup SizeUp
+ - setup 1Password
+ - install slack
+ - kamino out the repos
+ - install mint quickview

@@ -15,7 +15,11 @@ eval "
 
 __git_shortcut () {
     type _git_$2_shortcut &>/dev/null || __define_git_completion $1 $2
-    alias $1="git $2 $3 $4"
+
+    # allow git-extras from https://github.com/tj/git-extras
+    cmd=${2//_/-}
+
+    alias $1="git $cmd $3 $4"
     complete -o default -o nospace -F _git_$2_shortcut $1
 }
 
@@ -26,6 +30,7 @@ __git_shortcut  gbd   branch -D
 __git_shortcut  gci   commit -v
 __git_shortcut  gcia  commit '-a -v'
 __git_shortcut  gd    diff
+__git_shortcut  gdb   'delete_branch'
 __git_shortcut  gdc   diff --cached
 __git_shortcut  gdcs  diff --stat --cached
 __git_shortcut  gds   diff --stat
