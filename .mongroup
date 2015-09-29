@@ -1,5 +1,5 @@
 pids = /Users/john/var/run
 logs = /Users/john/var/log
 
-mongo = mongod --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest
+mongo = mongod --dbpath ~/data/mongodb --logpath ~/tmp/mongodb.log --rest --httpinterface
 redis = redis-server /usr/local/etc/redis.conf >> ~/tmp/redis.log

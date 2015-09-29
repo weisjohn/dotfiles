@@ -6,6 +6,10 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+# allow re-install of grep
+brew tap homebrew/dupes
+
+
 # better unix utils
 brew install coreutils
 
@@ -65,6 +69,15 @@ brew install tree
 
 # git-extras
 brew install git-extras
+
+# grep
+brew install grep --with-default-names
+
+# apache 
+brew tap homebrew/apache
+brew install -v httpd22 --with-brewed-openssl
+
+# TODO: look at https://echo.co/blog/os-x-109-local-development-environment-apache-php-and-mysql-homebrew
 
 # Remove outdated versions from the cellar
 brew cleanup

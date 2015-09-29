@@ -78,9 +78,10 @@ alias postgres-start="postgres -D /usr/local/var/postgres"
 
 
 # phantomjs
-
 alias p="phantomjs"
 
+# nwjs
+alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
 # mongroup
 alias mg="mongroup -c $MGCONFIG"
@@ -104,3 +105,6 @@ function status() {
 
 # blink(1) mk2 
 alias b="blink1-tool"
+
+
+

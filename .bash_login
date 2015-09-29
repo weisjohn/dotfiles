@@ -34,6 +34,8 @@ nvm use $NODE_VERSION
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:$HOME/.nvm/versions/$NODE_VERSION/lib/node_modules"
 export NODE_ENV="local"
 export NODE_DEV_CLEARSCREEN=false
+export NODE_REPL_HISTORY="$HOME/.node_repl_history"
+export NODE_REPL_HISTORY_FILE=$NODE_REPL_HISTORY
 
 
 # run z 
