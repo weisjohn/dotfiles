@@ -42,8 +42,8 @@ source $HOME/.nvm/nvm.sh
 sudo -e nvm install 0.12.6
 nvm use 0.12.6
 
-# install global node utilties 
-npm install -g bower browserify bunyan coffee-script docco docserv fixpack gulp jshint json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
+# install global node utilties
+npm install -g bower browserify bunyan docco docserv eslint fixpack gulp json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
 
 # install gvm
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -53,7 +53,7 @@ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bins
 cd $HOME/src
 git clone git://github.com/rupa/z.git
 
-# install rvm 
+# install rvm
 curl -L https://get.rvm.io | bash -s stable --ruby
 
 # install compass and sass
