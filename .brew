@@ -31,7 +31,7 @@ brew install man2html
 # tab completion for some awesome stuff - http://meinit.nl/bash-completion-mac-os-x
 brew install bash-completion
 
-# github awesomeness 
+# github awesomeness
 brew install hub
 
 # install mongodb
@@ -73,13 +73,14 @@ brew install git-extras
 # grep
 brew install grep --with-default-names
 
-# apache 
+# apache
 brew tap homebrew/apache
 brew install -v httpd22 --with-brewed-openssl
 
 # TODO: look at https://echo.co/blog/os-x-109-local-development-environment-apache-php-and-mysql-homebrew
 
+# quick markdown preview
+brew cask install qlmarkdown
+
 # Remove outdated versions from the cellar
 brew cleanup
-
-
