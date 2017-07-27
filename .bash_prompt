@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
 # Screenshot: http://i.imgur.com/s0Blh.png
@@ -23,7 +25,8 @@ if tput setaf 1 &> /dev/null; then
 		PURPLE=$(tput setaf 1)
 		WHITE=$(tput setaf 7)
 	fi
-	#BOLD=$(tput bold)
+	BOLD=$(tput bold)
+	BLINK=$(tput blink)
 	RESET=$(tput sgr0)
 else
 	MAGENTA="\033[1;31m"
@@ -31,7 +34,7 @@ else
 	GREEN="\033[1;32m"
 	PURPLE="\033[1;35m"
 	WHITE="\033[1;37m"
-	#BOLD=""
+	BOLD=""
 	RESET="\033[m"
 fi
 
@@ -41,6 +44,7 @@ export GREEN
 export PURPLE
 export WHITE
 export BOLD
+export BLINK
 export RESET
 
 function parse_git_dirty() {
@@ -51,7 +55,11 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+if [[ $(id -u) -eq 0 ]]; then
+  PS1="\[${BLINK}${MAGENTA}\]\u\e[0m \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+else
+  PS1="\[${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+fi
 
 # allow new lines after command executions
 shopt -s promptvars
