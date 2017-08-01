@@ -17,11 +17,7 @@ for file in ~/.{extra,aliases,bash_prompt,functions,git-completion-aliases}; do
 done
 unset file
 
-
-# To use Sublime Text 2 as the editor for many commands that prompt for input, set your EDITOR environment variable:
-# Specifying -w will cause the subl command to not exit until the file is closed.
-# learn more: http://www.sublimetext.com/docs/2/osx_command_line.html
-export EDITOR='subl'
+export EDITOR='atom'
 
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
@@ -39,23 +35,23 @@ export NODE_REPL_HISTORY="$HOME/.node_repl_history"
 export NODE_REPL_HISTORY_FILE=$NODE_REPL_HISTORY
 
 
-# run z 
+# run z
 . ~/src/z/z.sh
 
 # path modifications
 
 # mongo db location
-export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin 
+export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin
 
-# python path 
+# python path
 # export PATH=$PATH:/usr/lib/python2.7
 
-# rvm 
+# rvm
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# go 
+# go
 export GOPATH="$HOME/src:$HOME/mysrc"
 export PATH=$PATH:$GOPATH/bin
 
