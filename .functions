@@ -37,8 +37,8 @@ function g2w() {
 
 # today's activity
 function gday() {
-	for hour in $(seq 8 -1 0); do 
-    	git log --author "$@" --before="${hour} hours" --after="$[${hour}+1] hours" --format=oneline | 
+	for hour in $(seq 8 -1 0); do
+    	git log --author "$@" --before="${hour} hours" --after="$[${hour}+1] hours" --format=oneline |
     	wc -l;
 	done | spark
 }
@@ -66,7 +66,7 @@ function sms() {
 }
 
 
-# start weinre and accept a port 
+# start weinre and accept a port
 function weinre() {
 	local host="${1:-8888}"
 	node /usr/local/lib/node_modules/weinre/weinre --boundHost=$host
@@ -102,7 +102,7 @@ function h2d() {
   echo "ibase=16; $@"|bc
 }
 
-# decimal to hex 
+# decimal to hex
 function d2h() {
   echo "obase=16; $@"|bc
 }
@@ -127,7 +127,7 @@ function discover() {
 }
 
 
-function new_term() { 
+function new_term() {
     TERM_PATH=`pwd`
 
     if [ $# -eq 1 ]; then
@@ -167,7 +167,7 @@ function dev() {
     if [ ! -f $dev_conf ]; then
         echo "no devconf found"
         commands=("node-dev . | bunyan" "git pull && git status && subl .")
-    else 
+    else
         commands=$(cat dev_conf)
     fi
 
@@ -191,7 +191,7 @@ function zfind() {
     cd $here
 
     echo $there
-    
+
 }
 
 
@@ -227,3 +227,8 @@ function b64() {
     # TODO: this comes out all gross like, pull the strings together and make it awesome
 }
 
+
+# requires `brew install fswatch`
+function watch() {
+	fswatch $1 | xargs -n1 -I{} ./$1
+}
