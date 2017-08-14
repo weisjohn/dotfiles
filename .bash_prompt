@@ -56,9 +56,9 @@ function parse_git_branch() {
 }
 
 if [[ $(id -u) -eq 0 ]]; then
-  PS1="\[${BLINK}${MAGENTA}\]\u\e[0m \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+  PS1="\[${BLINK}${MAGENTA}\]\u\e[0m \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\nλ \[$RESET\]"
 else
-  PS1="\[${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+  PS1="\[${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\nλ \[$RESET\]"
 fi
 
 # allow new lines after command executions
