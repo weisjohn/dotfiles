@@ -15,6 +15,18 @@ function gm() {
 	git merge --no-ff $@
 }
 
+# https://gist.github.com/schacon/942899
+# git(1) - remove merged branches
+# requires https://github.com/tj/git-extras
+function grmb() {
+  git branch -r --merged origin/master |
+  grep origin |
+  grep -v master |
+  grep -v develop |
+  awk '{sub(/origin\//,"");print}' |
+  xargs git delete-branch
+}
+
 # https://github.com/holman/spark/wiki/Wicked-Cool-Usage
 # Histogram of commits throughout the day by author
 function gg() {
