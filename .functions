@@ -235,3 +235,8 @@ function b64() {
     openssl base64 -in $1 | pbcopy
     # TODO: this comes out all gross like, pull the strings together and make it awesome
 }
+
+# requires `brew install fswatch`
+function watch() {
+	fswatch $1 | xargs -n1 -I{} ./$1
+}
