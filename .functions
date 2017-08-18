@@ -37,8 +37,8 @@ function g2w() {
 
 # today's activity
 function gday() {
-	for hour in $(seq 8 -1 0); do 
-    	git log --author "$@" --before="${hour} hours" --after="$[${hour}+1] hours" --format=oneline | 
+	for hour in $(seq 8 -1 0); do
+    	git log --author "$@" --before="${hour} hours" --after="$[${hour}+1] hours" --format=oneline |
     	wc -l;
 	done | spark
 }
@@ -66,7 +66,7 @@ function sms() {
 }
 
 
-# start weinre and accept a port 
+# start weinre and accept a port
 function weinre() {
 	local host="${1:-8888}"
 	node /usr/local/lib/node_modules/weinre/weinre --boundHost=$host
@@ -102,7 +102,7 @@ function h2d() {
   echo "ibase=16; $@"|bc
 }
 
-# decimal to hex 
+# decimal to hex
 function d2h() {
   echo "obase=16; $@"|bc
 }
@@ -127,7 +127,7 @@ function discover() {
 }
 
 
-function new_term() { 
+function new_term() {
     TERM_PATH=`pwd`
 
     if [ $# -eq 1 ]; then
@@ -167,7 +167,7 @@ function dev() {
     if [ ! -f $dev_conf ]; then
         echo "no devconf found"
         commands=("node-dev . | bunyan" "git pull && git status && subl .")
-    else 
+    else
         commands=$(cat dev_conf)
     fi
 
@@ -191,27 +191,36 @@ function zfind() {
     cd $here
 
     echo $there
-    
+
 }
 
 
 # simple thing to get me to journal more
-function today() {
-    monthpath="/Users/jweis/mysrc/weisjohn/journal/"$(date "+%Y/%m/")
-    mkdir -p $monthpath
-    cd $monthpath
-    filename=$(date "+%d.md")
-    touch $filename
-    subl $filename
-}
-
 function yesterday() {
-    monthpath="/Users/jweis/mysrc/weisjohn/journal/"$(date -v -1d "+%Y/%m/")
+    monthpath="$MYSRC/weisjohn/journal/"$(date -v -1d "+%Y/%m/")
     mkdir -p $monthpath
     cd $monthpath
     filename=$(date -v -1d "+%d.md")
     touch $filename
-    subl $filename
+    $EDITOR $filename
+}
+
+function today() {
+    monthpath="$MYSRC/weisjohn/journal/"$(date "+%Y/%m/")
+    mkdir -p $monthpath
+    cd $monthpath
+    filename=$(date "+%d.md")
+    touch $filename
+    $EDITOR $filename
+}
+
+function tomorrow() {
+    monthpath="$MYSRC/weisjohn/journal/"$(date -v +1d "+%Y/%m/")
+    mkdir -p $monthpath
+    cd $monthpath
+    filename=$(date "+%d.md")
+    touch $filename
+    $EDITOR $filename
 }
 
 
@@ -226,4 +235,3 @@ function b64() {
     openssl base64 -in $1 | pbcopy
     # TODO: this comes out all gross like, pull the strings together and make it awesome
 }
-
