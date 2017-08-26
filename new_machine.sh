@@ -39,11 +39,11 @@ sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Subl
 # install nvm , node latest
 curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | sudo bash
 source $HOME/.nvm/nvm.sh
-sudo -e nvm install 0.12.6
-nvm use 0.12.6
+sudo -e nvm install 8.2.1
+nvm use 8.2.1
 
 # install global node utilties
-npm install -g bower browserify bunyan docco docserv eslint fixpack gulp json kamino madeye mocha node-debug node-dev node-inspector npmd pageres tessel yo
+npm install -g bunyan docco docserv eslint fixpack json kamino mocha node-debug node-dev node-inspector npmd pageres tessel yo
 
 # install gvm
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -57,8 +57,8 @@ git clone git://github.com/rupa/z.git
 curl -L https://get.rvm.io | bash -s stable --ruby
 
 # install compass and sass
-gem install sass
-gem install compass
+#gem install sass
+#gem install compass
 
 # install bundler, guard which are necessary for live-reload
 #gem install bundler
@@ -88,7 +88,7 @@ gem install compass
 # TODO
 
 # setup `subl` command
-sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /bin/subl
+# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /bin/subl
 
 ##################################################################
 # wallpapers and screen savers						       		 #

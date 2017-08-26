@@ -37,7 +37,7 @@ alias gsup="git pull && git submodule update"
 alias gu="git push --set-upstream origin $(git branch | awk '/^\* / { print $2 }') >> /dev/null"
 
 
-# nodes 
+# nodes
 alias enpm='npm --registry http://registry.npmjs.eu '
 alias dpm='npmd'
 alias nd='node-dev'
@@ -51,7 +51,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
-# colorized cat : #https://github.com/gthank/solarized-dark-pygments 
+# colorized cat : #https://github.com/gthank/solarized-dark-pygments
 alias c='pygmentize -O style=solarized -f console256 -g'
 
 # phone gap aliases
@@ -103,8 +103,8 @@ function status() {
     codez | grep -e "$1"
 }
 
-# blink(1) mk2 
+# blink(1) mk2
 alias b="blink1-tool"
 
 
-
+alias d="docker"

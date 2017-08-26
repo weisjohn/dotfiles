@@ -1,0 +1,31 @@
+#!/bin/bash
+
+alch=$GOPATH/src/github.com/pgalchemy
+
+for project in $(ls $alch); do
+  echo $project
+  empty=''
+  name="${project/-service/$empty}"
+
+  # install deps, create db / users for each project
+  # cd $alch/$project
+  # gvt restore
+  # createdb $name
+  # createuser $name
+  # ./bin/test
+
+  # create branch, push, make pull request
+  cd $alch/$project
+  git checkout -b feature/doc
+  git branch -u origin/feature/doc feature/doc
+  git push -u origin feature/doc
+  git add README.md
+  git commit -m "docs: adding db create user/db"
+  git push
+  hub pull-request -m "docs: adding db create user/db"
+
+  echo
+
+done
+
+echo

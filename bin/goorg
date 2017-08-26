@@ -1,0 +1,44 @@
+#!/bin/bash
+
+### move all repos from ~/mysrc to appropriate go location
+
+source=$MYSRC
+
+## TODO: this could use $GOPATH
+destination=$MYSRC/go/src/github.com
+
+# ensure destination exists
+mkdir -p $destination
+
+# look for repos w/ go files in them
+repos=$(find $source -maxdepth 3 -name *.go -print0 |\
+# get the dirname only
+xargs -0 -n1 dirname |\
+# ignore repos already in go
+grep -v './go' |\
+# grab unique only
+sort -u)
+
+for repo in $repos; do
+
+  # remove prefix of where is it to find the repo name
+  name="${repo/$MYSRC\///}"
+  space="$(echo $name | cut -d '/' -f 2)"/
+  space=$destination/$space
+  dest=$destination/$name
+  dest=${dest/\/\///}
+
+  # debug
+  # echo "repo" $repo
+  # echo "name" $name
+  # echo "space" $space
+  # echo "dest" $dest
+  # echo
+
+  # ensure directory exists
+  mkdir -p $space
+
+  # move repo to go area
+  mv $repo $dest
+
+done
