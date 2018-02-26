@@ -24,7 +24,7 @@ export EDITOR='atom'
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export NODE_VERSION="v8.4.0"
+export NODE_VERSION="v8.9.4"
 nvm use $NODE_VERSION > /dev/null 2>&1
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -45,8 +45,14 @@ export NODE_REPL_HISTORY_FILE=$NODE_REPL_HISTORY
 # mongo db location
 export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin
 
+# python3 path
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+
 # python path
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
 
 # rvm
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -55,7 +61,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # go
 source /Users/johnweis/.gvm/scripts/gvm
-gvm use go1.8 > /dev/null 2>&1
+gvm use go1.8.1 > /dev/null 2>&1
 export GOPATH="$HOME/mysrc/go"
 export PATH=$PATH:$GOPATH/bin
 
@@ -66,3 +72,11 @@ HISTFILESIZE=1000000000 HISTSIZE=1000000
 
 export SRC=$HOME/src
 export MYSRC=$HOME/mysrc
+
+
+
+## android
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
