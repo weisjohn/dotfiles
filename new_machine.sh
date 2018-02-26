@@ -9,6 +9,9 @@ mkdir -p $HOME/src && mkdir -p $HOME/mysrc
 # languages and utilities       								 #
 ##################################################################
 
+# prompt for xcode install
+xcode-select --install
+
 # install brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
