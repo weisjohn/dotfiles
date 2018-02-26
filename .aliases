@@ -42,9 +42,12 @@ alias enpm='npm --registry http://registry.npmjs.eu '
 alias dpm='npmd'
 alias nd='node-dev'
 alias ndb='node-dev . | bunyan'
+alias nmb='nodemon | bunyan'
 alias nb="node . | bunyan"
 alias sndb='sudo -E node-dev . | bunyan'
 alias nodedocs='wget -pm http://nodejs.org/api/'
+
+alias nrd="npm run debug"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -52,7 +55,7 @@ alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # colorized cat : #https://github.com/gthank/solarized-dark-pygments
-alias c='pygmentize -O style=solarized -f console256 -g'
+alias c='pygmentize -O style=solarizeddark256 -f console256 -g'
 
 # phone gap aliases
 	# for ios (pi = Phonegap iOS)
@@ -84,6 +87,7 @@ alias p="phantomjs"
 alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
 # mongroup
+export MGCONFIG="~/.mongroup"
 alias mg="mongroup -c $MGCONFIG"
 
 # Add tab completion for mg
@@ -106,5 +110,23 @@ function status() {
 # blink(1) mk2
 alias b="blink1-tool"
 
-
+# docker
 alias d="docker"
+alias dc="docker-compose"
+
+# aws
+alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
+
+## chrome
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+
+## reset camera
+alias reset_camera="sudo killall VDCAssistant"
+
+
+## react-native
+alias rn="react-native"
+alias rnra="react-native run-android"
+alias rnd="adb shell input keyevent 82"
+alias rnr="adb reverse tcp:8081 tcp:8081"
