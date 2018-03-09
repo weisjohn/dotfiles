@@ -1,0 +1,4 @@
+#!usr/bin/env node
+
+const key = process.env.OXR_API_KEY;
+const url = `http://openexchangerates.org/api/latest.json?app_id=${key}`;
