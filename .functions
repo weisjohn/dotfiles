@@ -252,3 +252,8 @@ function b64() {
 function watch() {
 	fswatch $1 | xargs -n1 -I{} ./$1
 }
+
+## port listen detector
+function listening() {
+	lsof -i :$1
+}
