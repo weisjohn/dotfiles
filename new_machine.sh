@@ -36,10 +36,12 @@ cp $HOME/src/solarized-dark-pygments/solarized256.py /Library/Python/2.7/site-pa
 # /Users/jweis/
 
 # install nvm , node latest
-curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | sudo bash
-source $HOME/.nvm/nvm.sh
+git clone https://github.com/creationix/nvm.git $HOME/.nvm
+cd $HOME/.nvm
+git checkout v0.33.8
+. nvm.sh
 export NODE_VERSION=9.8.0
-sudo -e nvm install $NODE_VERSION
+nvm install $NODE_VERSION
 nvm use $NODE_VERSION
 
 # install global node utilties
