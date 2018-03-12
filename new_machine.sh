@@ -27,10 +27,6 @@ sudo easy_install pygments
 # install solarized dark theme for colorized cat with pygments
 git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarized-dark-pygments
 cp $HOME/src/solarized-dark-pygments/solarized.py /Library/Python/2.7/site-packages/Pygments-1.6-py2.7.egg/pygments/styles/.
-# install solarized dark theme for ST2
-git clone git://github.com/deplorableword/textmate-solarized.git $HOME/src/textmate-solarized
-sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/Theme\ \-\ Solarized
-
 
 # install mon & mongroup
 (mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/tj/mon/archive/master.tar.gz | tar zx --strip 1 && make install && rm -rf /tmp/mon)
