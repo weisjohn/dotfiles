@@ -33,7 +33,7 @@ cp $HOME/src/solarized-dark-pygments/solarized256.py /Library/Python/2.7/site-pa
 (mkdir /tmp/mongroup && cd /tmp/mongroup && curl -L# https://github.com/Ensequence/mongroup/archive/master.tar.gz | tar zx --strip 1 && make install)
 
 
-# /Users/jweis/
+# $HOME
 
 # install nvm , node latest
 git clone https://github.com/creationix/nvm.git $HOME/.nvm
@@ -48,7 +48,11 @@ nvm use $NODE_VERSION
 npm install -g bunyan kamino nodemon
 
 # install gvm
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+bash < <(curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer)
+source $HOME/.gvm/scripts/gvm
+gvm install go1.4
+gvm use go1.4
+gvm install go1.10
 
 
 # install z
