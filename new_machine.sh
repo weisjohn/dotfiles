@@ -42,11 +42,12 @@ sudo cp -R $HOME/src/textmate-solarized/ $HOME/Library/Application\ Support/Subl
 # install nvm , node latest
 curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | sudo bash
 source $HOME/.nvm/nvm.sh
-sudo -e nvm install 8.2.1
-nvm use 8.2.1
+export NODE_VERSION=9.8.0
+sudo -e nvm install $NODE_VERSION
+nvm use $NODE_VERSION
 
 # install global node utilties
-npm install -g bunyan docco docserv eslint fixpack json kamino mocha node-debug node-dev node-inspector npmd pageres tessel yo
+npm install -g bunyan kamino nodemon
 
 # install gvm
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -58,15 +59,6 @@ git clone git://github.com/rupa/z.git
 
 # install rvm
 curl -L https://get.rvm.io | bash -s stable --ruby
-
-# install compass and sass
-#gem install sass
-#gem install compass
-
-# install bundler, guard which are necessary for live-reload
-#gem install bundler
-#gem install guard
-#gem install guard-livereload
 
 
 ##################################################################
@@ -87,12 +79,6 @@ curl -L https://get.rvm.io | bash -s stable --ruby
 # applications						       						 #
 ##################################################################
 
-# cd $HOME/Downloads
-# TODO
-
-# setup `subl` command
-# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /bin/subl
-
 ##################################################################
 # wallpapers and screen savers						       		 #
 ##################################################################
@@ -110,7 +96,7 @@ echo "please run the bootstrap.sh file now"
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
 else
-	echo "Applications that need to be installed: Chrome Canary, Sublime Text 3, LiveReload"
+	echo "Applications that need to be installed: Chrome Canary"
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
