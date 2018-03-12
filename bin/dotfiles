@@ -184,7 +184,7 @@ else
 fi
 
 # Utilities, helpers.
-source ~/mysrc/dotfiles/source/10_misc.sh
+# source ~/mysrc/dotfiles/source/10_misc.sh
 
 # Add binaries into the path
 PATH=~/mysrc/dotfiles/bin:$PATH
