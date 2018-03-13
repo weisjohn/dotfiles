@@ -82,6 +82,11 @@ curl -L https://get.rvm.io | bash -s stable --ruby
 # applications						       						 #
 ##################################################################
 
+## automatically run Mac OS changes
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  sudo $HOME/mysrc/dotfiles/.macos
+fi
+
 ##################################################################
 # wallpapers and screen savers						       		 #
 ##################################################################
