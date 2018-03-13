@@ -19,8 +19,8 @@ brew install wget --enable-iri
 # brew ack
 brew install ack
 
-# macosx ships with git ~ 1.7.? , get the latest
-brew install git
+# vscode
+brew install visual-studio-code
 
 # spark - https://github.com/holman/spark
 brew install spark
