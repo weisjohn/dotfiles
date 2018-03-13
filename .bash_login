@@ -1,3 +1,4 @@
+
 # Add `~/bin` and `/usr/local/bin` to the `$PATH`
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -55,13 +56,14 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 
 # rvm
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # go
-source /Users/johnweis/.gvm/scripts/gvm
-gvm use go1.8.1 > /dev/null 2>&1
+# TODO: gvm directory watching is just slow
+# source /Users/johnweis/.gvm/scripts/gvm
+gvm use go1.10 > /dev/null 2>&1
 export GOPATH="$HOME/mysrc/go"
 export PATH=$PATH:$GOPATH/bin
 
