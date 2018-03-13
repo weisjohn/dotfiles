@@ -22,11 +22,12 @@ $HOME/.brew
 # install git extras
 (cd /tmp && git clone --depth 1 https://github.com/tj/git-extras.git && cd git-extras && sudo make install)
 
-# install pygments for docco
+# install pygments for docco, colorized cat alias
 sudo easy_install pygments
 # install solarized dark theme for colorized cat with pygments
-git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarized-dark-pygments
-cp $HOME/src/solarized-dark-pygments/solarized256.py /Library/Python/2.7/site-packages/Pygments-1.6-py2.7.egg/pygments/styles/.
+sdp=$HOME/src/solarized-dark-pygments
+git clone git://github.com/apouche/solarized-dark-pygments.git $sdp && cd $sdp
+sudo python setup.py install
 
 # install mon & mongroup
 (mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/tj/mon/archive/master.tar.gz | tar zx --strip 1 && make install && rm -rf /tmp/mon)
