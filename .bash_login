@@ -20,7 +20,9 @@ for file in ~/.{extra,aliases,bash_prompt,functions,git-completion-aliases}; do
 done
 unset file
 
-export EDITOR='atom'
+# vscode integration
+export EDITOR='code'
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
