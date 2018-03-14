@@ -63,9 +63,10 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # go
-# TODO: gvm directory watching is just slow
-# source /Users/johnweis/.gvm/scripts/gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 gvm use go1.10 > /dev/null 2>&1
+
+
 export GOPATH="$HOME/mysrc/go"
 export PATH=$PATH:$GOPATH/bin
 
