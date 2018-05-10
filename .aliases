@@ -118,6 +118,9 @@ alias b="blink1-tool"
 alias d="docker"
 alias dc="docker-compose"
 
+# kubernetes
+alias k="kubectl"
+
 # aws
 alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
 
