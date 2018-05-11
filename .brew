@@ -78,5 +78,8 @@ brew install grep --with-default-names
 # quick markdown preview
 brew cask install qlmarkdown
 
+# iterm2
+brew cask install iterm2
+
 # Remove outdated versions from the cellar
 brew cleanup
