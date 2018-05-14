@@ -137,3 +137,7 @@ alias rn="react-native"
 alias rnra="react-native run-android"
 alias rnd="adb shell input keyevent 82"
 alias rnr="adb reverse tcp:8081 tcp:8081"
+
+
+## colorterm ssh integration
+alias ssh=colorssh

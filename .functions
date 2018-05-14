@@ -257,3 +257,19 @@ function watch() {
 function listening() {
 	lsof -i :$1
 }
+
+## function integration for alias
+colorssh() {
+    trap "colorterm" INT EXIT
+    if [[ "$*" =~ "prod" ]]; then
+        colorterm prod
+    elif [[ "$*" =~ "stage" ]]; then
+        colorterm dev
+    elif [[ "$*" =~ "dev" ]]; then
+        colorterm dev
+    else
+        colorterm
+    fi
+    /usr/bin/ssh $1
+    colorterm
+}
