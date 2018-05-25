@@ -58,6 +58,8 @@ brew install phantomjs
 # ffmpeg
 brew install ffmpeg
 
+brew install caskroom/cask/vlc
+
 # imagemagick
 brew install imagemagick
 
