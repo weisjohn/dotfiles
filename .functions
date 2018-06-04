@@ -273,3 +273,11 @@ colorssh() {
     /usr/bin/ssh $1
     colorterm
 }
+
+## start writing a mark down note in this directory prefixed by today's date
+function note() {
+    file="$(date +%Y.%m.%d).$(slugify "$1").md"
+    touch $file
+    echo "# $1" >> $file
+    $EDITOR $file
+}
