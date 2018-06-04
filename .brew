@@ -83,5 +83,8 @@ brew cask install qlmarkdown
 # iterm2
 brew cask install iterm2
 
+# gnupg
+brew install gnupg
+
 # Remove outdated versions from the cellar
 brew cleanup
