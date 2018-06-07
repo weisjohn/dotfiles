@@ -6,6 +6,11 @@ function gc() {
 	git commit -m "$@"
 }
 
+function gcs() {
+    # signed commit and set message
+    git commit -S -m "$@"
+}
+
 function ga() {
 	# add a path
 	git add $@
@@ -235,6 +240,10 @@ function tomorrow() {
     $EDITOR $filename
 }
 
+function day() {
+    echo $(date +"%j")
+}
+
 
 # golang
 function gdoc() {
@@ -276,8 +285,14 @@ colorssh() {
 
 ## start writing a mark down note in this directory prefixed by today's date
 function note() {
-    file="$(date +%Y.%m.%d).$(slugify "$1").md"
+    file="$(date +%Y.%m.%d)"
+    if [[ $1 != "" ]]; then
+        file=$file.$(slugify "$1")
+    fi
+    file="$file.md"
     touch $file
-    echo "# $1" >> $file
+    if [[ $1 != "" ]]; then
+        echo "# $1" >> $file
+    fi
     $EDITOR $file
 }
