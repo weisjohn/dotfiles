@@ -80,6 +80,9 @@ brew install grep --with-default-names
 # quick markdown preview
 brew cask install qlmarkdown
 
+# other previews 
+brew cask install qlstephen
+
 # iterm2
 brew cask install iterm2
 
