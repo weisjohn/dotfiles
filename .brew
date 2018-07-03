@@ -89,5 +89,8 @@ brew cask install iterm2
 # gnupg
 brew install gnupg
 
+# see https://gist.github.com/bcomnes/647477a3a143774069755d672cb395ca
+brew install pinentry-mac
+
 # Remove outdated versions from the cellar
 brew cleanup
