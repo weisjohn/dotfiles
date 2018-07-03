@@ -92,5 +92,8 @@ brew install gnupg
 # see https://gist.github.com/bcomnes/647477a3a143774069755d672cb395ca
 brew install pinentry-mac
 
+# mcrypt for password protecting files
+brew install mcrypt
+
 # Remove outdated versions from the cellar
 brew cleanup
