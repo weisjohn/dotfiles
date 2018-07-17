@@ -95,5 +95,8 @@ brew install pinentry-mac
 # mcrypt for password protecting files
 brew install mcrypt
 
+# envchain - https://github.com/sorah/envchain
+brew install envchain
+
 # Remove outdated versions from the cellar
 brew cleanup
