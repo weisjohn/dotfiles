@@ -1,7 +1,11 @@
 
+# bash 4 globbing
+shopt -s globstar
+
 # Add `~/bin` and `/usr/local/bin` to the `$PATH`
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/Dropbox/john/bin:$PATH"
 
 # git autocompletion
 source ~/.git-completion.bash
@@ -83,3 +87,14 @@ export MYSRC=$HOME/mysrc
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+## google cloud sdk
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/share/google-cloud-sdk/path.bash.inc' ]; then
+	source '/usr/local/share/google-cloud-sdk/path.bash.inc'; 
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/share/google-cloud-sdk/completion.bash.inc' ]; then
+	source '/usr/local/share/google-cloud-sdk/completion.bash.inc'; 
+fi
