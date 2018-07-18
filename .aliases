@@ -117,10 +117,12 @@ alias b="blink1-tool"
 # docker
 alias d="docker"
 alias dc="docker-compose"
+complete -F _docker d
 
 # kubernetes
 alias k="kubectl"
 complete -o default -F __start_kubectl k
+alias m="minikube"
 
 # aws
 alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
