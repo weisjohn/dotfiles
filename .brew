@@ -13,6 +13,10 @@ brew tap homebrew/dupes
 # better unix utils
 brew install coreutils
 
+## fix missing sha256sum and sha512sum tools
+sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+sudo ln -s /usr/local/bin/gsha512sum /usr/local/bin/sha512sum
+
 # Install wget with IRI support
 brew install wget --enable-iri
 
