@@ -82,5 +82,8 @@ brew install -v httpd22 --with-brewed-openssl
 # quick markdown preview
 brew cask install qlmarkdown
 
+# gpg
+brew install gnupg
+
 # Remove outdated versions from the cellar
 brew cleanup
