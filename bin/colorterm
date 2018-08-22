@@ -4,10 +4,10 @@
 
 if [[ "$TERM_PROGRAM" = "iTerm.app"* ]]; then
   if [ "$1" == "prod" ]; then
-    echo "\033]50;SetProfile=normal-prod\x7"
+    printf "\033]50;SetProfile=normal-prod\x7"
   elif [ "$1" == "dev" ]; then
-    echo "\033]50;SetProfile=normal-dev\x7"
+    printf "\033]50;SetProfile=normal-dev\x7"
   else
-    echo "\033]50;SetProfile=normal\x7"
+    printf "\033]50;SetProfile=normal\x7"
   fi;
 fi
