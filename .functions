@@ -277,9 +277,9 @@ colorssh() {
     elif [[ "$*" =~ "dev" ]]; then
         colorterm dev
     else
-        colorterm
+        colorterm dev
     fi
-    /usr/bin/ssh $1
+    /usr/bin/ssh "$@"
     colorterm
 }
 
