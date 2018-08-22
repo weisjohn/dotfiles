@@ -1,6 +1,11 @@
+
+# bash 4 globbing
+shopt -s globstar
+
 # Add `~/bin` and `/usr/local/bin` to the `$PATH`
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/Dropbox/john/bin:$PATH"
 
 # git autocompletion
 source ~/.git-completion.bash
@@ -19,12 +24,14 @@ for file in ~/.{extra,aliases,bash_prompt,functions,git-completion-aliases}; do
 done
 unset file
 
-export EDITOR='atom'
+# vscode integration
+export EDITOR='code'
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export NODE_VERSION="v8.9.4"
+export NODE_VERSION="v8.10.0"
 nvm use $NODE_VERSION > /dev/null 2>&1
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -55,13 +62,13 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 
 # rvm
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # go
-source /Users/johnweis/.gvm/scripts/gvm
-gvm use go1.8.1 > /dev/null 2>&1
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+gvm use go1.10 > /dev/null 2>&1
 export GOPATH="$HOME/mysrc/go"
 export PATH=$PATH:$GOPATH/bin
 
@@ -80,3 +87,14 @@ export MYSRC=$HOME/mysrc
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+## google cloud sdk
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/share/google-cloud-sdk/path.bash.inc' ]; then
+	source '/usr/local/share/google-cloud-sdk/path.bash.inc'; 
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/share/google-cloud-sdk/completion.bash.inc' ]; then
+	source '/usr/local/share/google-cloud-sdk/completion.bash.inc'; 
+fi

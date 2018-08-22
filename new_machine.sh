@@ -22,31 +22,38 @@ $HOME/.brew
 # install git extras
 (cd /tmp && git clone --depth 1 https://github.com/tj/git-extras.git && cd git-extras && sudo make install)
 
-# install pygments for docco
+# install pygments for docco, colorized cat alias
 sudo easy_install pygments
 # install solarized dark theme for colorized cat with pygments
-git clone git://github.com/gthank/solarized-dark-pygments.git $HOME/src/solarized-dark-pygments
-cp $HOME/src/solarized-dark-pygments/solarized256.py /Library/Python/2.7/site-packages/Pygments-1.6-py2.7.egg/pygments/styles/.
+sdp=$HOME/src/solarized-dark-pygments
+git clone git://github.com/apouche/solarized-dark-pygments.git $sdp && cd $sdp
+sudo python setup.py install
 
 # install mon & mongroup
 (mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/tj/mon/archive/master.tar.gz | tar zx --strip 1 && make install && rm -rf /tmp/mon)
 (mkdir /tmp/mongroup && cd /tmp/mongroup && curl -L# https://github.com/Ensequence/mongroup/archive/master.tar.gz | tar zx --strip 1 && make install)
 
 
-# /Users/jweis/
+# $HOME
 
 # install nvm , node latest
-curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | sudo bash
-source $HOME/.nvm/nvm.sh
+git clone https://github.com/creationix/nvm.git $HOME/.nvm
+cd $HOME/.nvm
+git checkout v0.33.8
+. nvm.sh
 export NODE_VERSION=9.8.0
-sudo -e nvm install $NODE_VERSION
+nvm install $NODE_VERSION
 nvm use $NODE_VERSION
 
 # install global node utilties
-npm install -g bunyan kamino nodemon
+npm install -g bunyan kamino nodemon slugify-cli fkill-cli
 
 # install gvm
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+bash < <(curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer)
+source $HOME/.gvm/scripts/gvm
+gvm install go1.4
+gvm use go1.4
+gvm install go1.10
 
 
 # install z
@@ -74,6 +81,11 @@ curl -L https://get.rvm.io | bash -s stable --ruby
 ##################################################################
 # applications						       						 #
 ##################################################################
+
+## automatically run Mac OS changes
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  sudo $HOME/mysrc/dotfiles/.macos
+fi
 
 ##################################################################
 # wallpapers and screen savers						       		 #

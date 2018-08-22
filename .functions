@@ -6,6 +6,11 @@ function gc() {
 	git commit -m "$@"
 }
 
+function gcs() {
+    # signed commit and set message
+    git commit -S -m "$@"
+}
+
 function ga() {
 	# add a path
 	git add $@
@@ -235,6 +240,10 @@ function tomorrow() {
     $EDITOR $filename
 }
 
+function day() {
+    echo $(date +"%j")
+}
+
 
 # golang
 function gdoc() {
@@ -256,4 +265,44 @@ function watch() {
 ## port listen detector
 function listening() {
 	lsof -i :$1
+}
+
+## function integration for alias
+colorssh() {
+    trap "colorterm" INT EXIT
+    if [[ "$*" =~ "prod" ]]; then
+        colorterm prod
+    elif [[ "$*" =~ "stage" ]]; then
+        colorterm dev
+    elif [[ "$*" =~ "dev" ]]; then
+        colorterm dev
+    else
+        colorterm
+    fi
+    /usr/bin/ssh $1
+    colorterm
+}
+
+## start writing a mark down note in this directory prefixed by today's date
+function note() {
+    file="$(date +%Y.%m.%d)"
+    if [[ $1 != "" ]]; then
+        file=$file.$(slugify "$1")
+    fi
+    file="$file.md"
+    touch $file
+    if [[ $1 != "" ]]; then
+        echo "# $1" >> $file
+    fi
+    $EDITOR $file
+}
+
+## docker cleanup
+function dclean() {
+    # remove exited containers
+    docker rm $(docker ps -a -f status=exited -q)
+    # remove dangling images
+    docker images -f dangling=true | grep 'none' | awk '{print $3}' | xargs docker rmi
+    # remove images that are super old, sometimes fails
+    docker images | grep 'months' | awk '{print $3}' | xargs docker rmi
 }

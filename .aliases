@@ -58,6 +58,9 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
 # colorized cat : #https://github.com/gthank/solarized-dark-pygments
 alias c='pygmentize -O style=solarized256 -f console256 -g'
 
@@ -117,6 +120,12 @@ alias b="blink1-tool"
 # docker
 alias d="docker"
 alias dc="docker-compose"
+complete -F _docker d
+
+# kubernetes
+alias k="kubectl"
+complete -o default -F __start_kubectl k
+alias m="minikube"
 
 # aws
 alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
@@ -134,3 +143,6 @@ alias rn="react-native"
 alias rnra="react-native run-android"
 alias rnd="adb shell input keyevent 82"
 alias rnr="adb reverse tcp:8081 tcp:8081"
+
+## colorterm ssh integration
+alias ssh=colorssh

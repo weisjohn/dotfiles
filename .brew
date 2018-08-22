@@ -13,14 +13,18 @@ brew tap homebrew/dupes
 # better unix utils
 brew install coreutils
 
+## fix missing sha256sum and sha512sum tools
+sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+sudo ln -s /usr/local/bin/gsha512sum /usr/local/bin/sha512sum
+
 # Install wget with IRI support
 brew install wget --enable-iri
 
 # brew ack
 brew install ack
 
-# macosx ships with git ~ 1.7.? , get the latest
-brew install git
+# vscode
+brew install visual-studio-code
 
 # spark - https://github.com/holman/spark
 brew install spark
@@ -58,6 +62,8 @@ brew install phantomjs
 # ffmpeg
 brew install ffmpeg
 
+brew install caskroom/cask/vlc
+
 # imagemagick
 brew install imagemagick
 
@@ -73,17 +79,31 @@ brew install git-extras
 # grep
 brew install grep --with-default-names
 
-# apache
-brew tap homebrew/apache
-brew install -v httpd22 --with-brewed-openssl
-
 # TODO: look at https://echo.co/blog/os-x-109-local-development-environment-apache-php-and-mysql-homebrew
 
 # quick markdown preview
 brew cask install qlmarkdown
 
-# gpg
+# other previews 
+brew cask install qlstephen
+
+# iterm2
+brew cask install iterm2
+
+# gnupg
 brew install gnupg
+
+# see https://gist.github.com/bcomnes/647477a3a143774069755d672cb395ca
+brew install pinentry-mac
+
+# mcrypt for password protecting files
+brew install mcrypt
+
+# envchain - https://github.com/sorah/envchain
+brew install envchain
+
+# 7zip
+brew install p7zip
 
 # Remove outdated versions from the cellar
 brew cleanup

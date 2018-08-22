@@ -2,7 +2,7 @@
 	name = John Weis
 	email = weis.john@gmail.com
 [core]
-	excludesfile = /Users/jweis/.gitignore_global
+	excludesfile = /Users/johnweis/.gitignore_global
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
