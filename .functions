@@ -306,3 +306,7 @@ function dclean() {
     # remove images that are super old, sometimes fails
     docker images | grep 'months' | awk '{print $3}' | xargs docker rmi
 }
+
+function trim() {
+    awk '{gsub(/^ +| +$/,"")} {print $0}'
+}
