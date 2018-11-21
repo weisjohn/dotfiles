@@ -308,5 +308,5 @@ function dclean() {
 }
 
 function trim() {
-    awk '{gsub(/^ +| +$/,"")} {print $0}'
+    awk '{gsub(/^ +| +$/,"")} {print $0}' | tr -d '\n'
 }
