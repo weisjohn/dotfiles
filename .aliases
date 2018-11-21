@@ -120,12 +120,21 @@ alias b="blink1-tool"
 # docker
 alias d="docker"
 alias dc="docker-compose"
+alias dm="docker-machine"
 complete -F _docker d
 
 # kubernetes
 alias k="kubectl"
 complete -o default -F __start_kubectl k
 alias m="minikube"
+alias mstart="minikube start --memory=8192 --cpus=4 --vm-driver=hyperkit"
+
+alias a="argo"
+complete -o default -F __start_argo a
+
+complete -o default -F __start_kubectl k
+
+alias v="virtctl"
 
 # aws
 alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
@@ -146,3 +155,6 @@ alias rnr="adb reverse tcp:8081 tcp:8081"
 
 ## colorterm ssh integration
 alias ssh=colorssh
+
+## bash tools
+alias bell="printf '\a'"
