@@ -13,6 +13,9 @@ brew tap homebrew/dupes
 # better unix utils
 brew install coreutils
 
+# mac doesn't have `--ignore-garbage` option
+brew install base64
+
 ## fix missing sha256sum and sha512sum tools
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 sudo ln -s /usr/local/bin/gsha512sum /usr/local/bin/sha512sum
@@ -84,7 +87,7 @@ brew install grep --with-default-names
 # quick markdown preview
 brew cask install qlmarkdown
 
-# other previews 
+# other previews
 brew cask install qlstephen
 
 # iterm2
@@ -104,6 +107,9 @@ brew install envchain
 
 # 7zip
 brew install p7zip
+
+# haskell
+brew install ghc
 
 # Remove outdated versions from the cellar
 brew cleanup
