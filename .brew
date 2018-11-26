@@ -111,5 +111,8 @@ brew install p7zip
 # haskell
 brew install ghc
 
+# minio client
+brew install minio/stable/mc
+
 # Remove outdated versions from the cellar
 brew cleanup
