@@ -158,3 +158,6 @@ alias ssh=colorssh
 
 ## bash tools
 alias bell="printf '\a'"
+
+## aws
+alias aws-whoami="aws iam get-user"
