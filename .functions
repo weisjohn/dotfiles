@@ -258,7 +258,7 @@ function b64() {
 }
 
 # requires `brew install fswatch`
-function watch() {
+function filewatch() {
 	fswatch $1 | xargs -n1 -I{} ./$1
 }
 
