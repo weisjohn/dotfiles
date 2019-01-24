@@ -310,3 +310,13 @@ function dclean() {
 function trim() {
     awk '{gsub(/^ +| +$/,"")} {print $0}' | tr -d '\n'
 }
+
+function payout() {
+    url="https://p5.minexmr.com/get_wid_stats?address=$MONERO_PUBLIC"
+    bal=$(curl $url -s | jq -r '.[1].balance')
+    node -e "console.log(\`\${$bal / 1e12} XMR\`)"
+
+    oxr="https://openexchangerates.org/api/latest.json?app_id=$OXR_API_KEY&only_alternative=true"
+    xmr=$(curl $oxr -s | jq -r '.rates.XMR')
+    node -e "console.log(\`\${(($bal / 1e12) * 1 / $xmr).toFixed(3)} USD\`)"
+}
