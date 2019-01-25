@@ -30,6 +30,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias src="source ~/.bash_login"
 alias rand="dd if=/dev/urandom bs=512 count=1 2> /dev/null | md5"
 alias pass="rand | perl -pe 'chomp' | pbcopy"
+alias lolcaps="pbpaste | altcaps | pbcopy"
 
 # this came from jtaby http://www.slideshare.net/jtaby/tools-and-techniques-for-faster-development slide 94
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
