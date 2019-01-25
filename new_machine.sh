@@ -46,7 +46,7 @@ nvm install $NODE_VERSION
 nvm use $NODE_VERSION
 
 # install global node utilties
-npm install -g bunyan kamino nodemon slugify-cli fkill-cli
+npm install -g bunyan kamino nodemon slugify-cli fkill-cli altcaps
 
 # install gvm
 bash < <(curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer)
