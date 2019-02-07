@@ -235,7 +235,7 @@ function tomorrow() {
     monthpath="$MYSRC/weisjohn/journal/"$(date -v +1d "+%Y/%m/")
     mkdir -p $monthpath
     cd $monthpath
-    filename=$(date "+%d.md")
+    filename=$(date -v +1d "+%d.md")
     touch $filename
     $EDITOR $filename
 }
