@@ -118,5 +118,8 @@ brew install minio/stable/mc
 # watch
 brew install watch
 
+# md5sum and sha1sum
+brew install md5sha1sum
+
 # Remove outdated versions from the cellar
 brew cleanup
