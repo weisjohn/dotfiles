@@ -124,5 +124,8 @@ brew install md5sha1sum
 # bat
 brew install bat
 
+# fzf
+brew install fzf
+
 # Remove outdated versions from the cellar
 brew cleanup
