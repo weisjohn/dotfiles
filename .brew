@@ -127,5 +127,8 @@ brew install bat
 # fzf
 brew install fzf
 
+# kubectx
+brew install kubectx
+
 # Remove outdated versions from the cellar
 brew cleanup
