@@ -47,6 +47,9 @@ export NODE_REPL_HISTORY_FILE=$NODE_REPL_HISTORY
 # run z
 . ~/src/z/z.sh
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # path modifications
 
 # mongo db location
