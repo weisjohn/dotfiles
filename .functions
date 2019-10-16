@@ -320,3 +320,32 @@ function payout() {
     xmr=$(curl $oxr -s | jq -r '.rates.XMR')
     node -e "console.log(\`\${(($bal / 1e12) * 1 / $xmr).toFixed(3)} USD\`)"
 }
+
+# create a gist from a file
+# TODO: add a directory
+function gist() {
+    arg=$1
+    if [ -z $GITHUB_AUTH_TOKEN ]; then
+        echo "gist: GITHUB_AUTH_TOKEN not set"
+        return 1
+    fi
+    if [ ! -e $arg ]; then
+        echo "gist: $arg: No such file or directory"
+        return 255
+    fi
+    if [ -f $arg ]; then
+        escaped=$(cat $arg | sed ':a;N;$!ba;s/\n/\\n/g')
+        # echo "$escaped"
+        file="\"$arg\":{\"content\":\"$escaped\"}"
+        # echo "$file"
+        data="{\"public\":true,\"files\":{$file}}"
+        # echo $data | jq '.'
+        out=$(curl -v -X POST -d "$data" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_AUTH_TOKEN" \
+            https://api.github.com/gists)
+        if [ $? -eq 0 ]; then
+            open $(echo $out | jq -r '.html_url')
+        fi
+    fi
+}
