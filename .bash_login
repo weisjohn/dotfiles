@@ -6,13 +6,14 @@ shopt -s globstar
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/Dropbox/john/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # git autocompletion
 source ~/.git-completion.bash
 
 # gives tab completion for lots o things, especially ssh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 
@@ -20,18 +21,18 @@ fi
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{extra,aliases,bash_prompt,functions,git-completion-aliases}; do
-	[ -r "$file" ] && source "$file"
+    [ -r "$file" ] && source "$file"
 done
 unset file
 
 # vscode integration
-export EDITOR='code'
+export EDITOR='code -w'
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # nvm , with tab completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export NODE_VERSION="v8.10.0"
+export NODE_VERSION="v11.4.0"
 nvm use $NODE_VERSION > /dev/null 2>&1
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -43,6 +44,8 @@ export NODE_DEV_CLEARSCREEN=false
 export NODE_REPL_HISTORY="$HOME/.node_repl_history"
 export NODE_REPL_HISTORY_FILE=$NODE_REPL_HISTORY
 
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # run z
 . ~/src/z/z.sh
@@ -57,11 +60,11 @@ export PATH=$PATH:$HOME/src/mongodb-osx-x86_64-2.0.6/bin
 
 # python3 path
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+export PATH="$PATH:$HOME/Library/Python/3.6/bin:"
 
 # python path
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/python/libexec/bin"
+export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
 
 # rvm
@@ -94,10 +97,20 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ## google cloud sdk
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/share/google-cloud-sdk/path.bash.inc' ]; then
-	source '/usr/local/share/google-cloud-sdk/path.bash.inc'; 
+    source '/usr/local/share/google-cloud-sdk/path.bash.inc';
 fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/share/google-cloud-sdk/completion.bash.inc' ]; then
-	source '/usr/local/share/google-cloud-sdk/completion.bash.inc'; 
+    source '/usr/local/share/google-cloud-sdk/completion.bash.inc';
 fi
+
+## kubernetes
+source <(argo completion bash)
+
+# maven
+export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+export M2=${M2_HOME}/bin
+export PATH=${PATH}:${M2_HOME}/bin
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
