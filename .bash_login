@@ -74,7 +74,7 @@ export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
 # go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-gvm use go1.10 > /dev/null 2>&1
+gvm use go1.13.4 > /dev/null 2>&1
 export GOPATH="$HOME/mysrc/go"
 export PATH=$PATH:$GOPATH/bin
 
