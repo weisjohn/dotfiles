@@ -349,3 +349,10 @@ function gist() {
         fi
     fi
 }
+
+# inspect aws configuration
+function aws-whoami() {
+    user=$(aws iam get-user)
+    aliases=$(aws iam list-account-aliases)
+    echo "$user $aliases" | jq '. | add'
+}
