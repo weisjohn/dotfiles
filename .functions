@@ -356,3 +356,10 @@ function aws-whoami() {
     aliases=$(aws iam list-account-aliases)
     echo "$user $aliases" | jq '. | add'
 }
+
+# open Firefox preferences and setup a SSH Tunnel to use as a socks proxy
+# $1 - ssh host value (alias)
+function socks() {
+    /Applications/Firefox.app/Contents/MacOS/firefox -preferences &
+    ssh -D 9999 -q -C -N $1
+}
