@@ -133,7 +133,7 @@ complete -F _docker d
 alias k="kubectl"
 complete -o default -F __start_kubectl k
 alias m="minikube"
-alias mstart="minikube start --memory=8192 --cpus=4 --vm-driver=hyperkit"
+alias mstart="minikube start --memory=8192 --cpus=4 --vm-driver=hyperkit --kubernetes-version=v1.15.6"
 
 alias a="argo"
 complete -o default -F __start_argo a
