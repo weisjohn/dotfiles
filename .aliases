@@ -164,3 +164,5 @@ alias ssh=colorssh
 
 ## bash tools
 alias bell="printf '\a'"
+
+alias wifi="osx-wifi-cli"
