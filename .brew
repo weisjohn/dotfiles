@@ -143,3 +143,6 @@ brew install speedtest-cli
 # Remove outdated versions from the cellar
 brew cleanup
 brew install jesseduffield/lazygit/lazygit
+
+# shellcheck
+brew install shellcheck
