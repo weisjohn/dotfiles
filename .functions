@@ -369,3 +369,11 @@ function randomAlphaNumeric() {
   len=${1:-"16"}
   perl -e "@c=(\"A\"..\"Z\",\"a\"..\"z\",0..9);\$p.=\$c[rand(scalar @c)] for 1..$len; print \"\$p\""
 }
+
+function hasNewline() {
+  if [ $(echo "$1" | wc -l) -gt 1 ]; then
+    return
+  else
+    return 1
+  fi
+}
