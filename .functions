@@ -361,5 +361,5 @@ function aws-whoami() {
 # $1 - ssh host value (alias)
 function socks() {
     /Applications/Firefox.app/Contents/MacOS/firefox -preferences &
-    ssh -D 9999 -q -C -N $1
+    ssh -D 9999 -q -C $1
 }
