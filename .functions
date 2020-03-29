@@ -382,3 +382,9 @@ function randomHex() {
   len=${1:-"32"}
   perl -e "@c=(\"a\"..\"f\",0..9);\$p.=\$c[rand(scalar @c)] for 1..$len; print \"\$p\""
 }
+
+# https://stackoverflow.com/a/3800791/87960
+function csv() {
+  column -s, -t < $1 | cat
+}
+
