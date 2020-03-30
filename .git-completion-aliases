@@ -29,6 +29,7 @@ __git_shortcut  gba   branch -a
 __git_shortcut  gbd   branch -D
 __git_shortcut  gci   commit -v
 __git_shortcut  gcia  commit '-a -v'
+__git_shortcut  gcp   cherry-pick
 __git_shortcut  gd    diff
 __git_shortcut  gdb   'delete_branch'
 __git_shortcut  gdc   diff --cached
@@ -38,11 +39,10 @@ __git_shortcut  gf    fetch
 __git_shortcut  glp   log -p
 __git_shortcut  gls   log --stat
 __git_shortcut  gm 	  merge --no-ff
-# no shortcut for go, because of `go(1)`
 __git_shortcut  gp    pull --recurse-submodules
 __git_shortcut  gr    rebase
-__git_shortcut  grm   rebase master
 __git_shortcut  grhh  reset HEAD --hard
+__git_shortcut  grm   rebase master
 __git_shortcut  grpo  remote prune origin
 __git_shortcut  gs    status
 __git_shortcut  gsa   stash apply
