@@ -168,3 +168,5 @@ alias bell="printf '\a'"
 alias tempdir='cd `mktemp -d`'
 
 alias wifi="osx-wifi-cli"
+
+alias rec="asciinema rec -i 1.5"
