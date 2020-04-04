@@ -146,3 +146,6 @@ brew install jesseduffield/lazygit/lazygit
 
 # shellcheck
 brew install shellcheck
+
+# asciinema
+brew install asciinema
