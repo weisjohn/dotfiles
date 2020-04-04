@@ -40,7 +40,7 @@ alias lolcaps="pbpaste | altcaps | pbcopy"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gsup="git pull && git submodule update"
 alias gu="git push --set-upstream origin $(git branch | awk '/^\* / { print $2 }') >> /dev/null"
-
+alias lg="lazygit"
 
 # nodes
 alias n='node'
