@@ -39,9 +39,9 @@ sudo python setup.py install
 # install nvm , node latest
 git clone https://github.com/creationix/nvm.git $HOME/.nvm
 cd $HOME/.nvm
-git checkout v0.33.8
+git checkout v0.35.3
 . nvm.sh
-export NODE_VERSION=9.8.0
+export NODE_VERSION="v12.13.0"
 nvm install $NODE_VERSION
 nvm use $NODE_VERSION
 
