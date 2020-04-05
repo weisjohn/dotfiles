@@ -170,3 +170,5 @@ alias tempdir='cd `mktemp -d`'
 alias wifi="osx-wifi-cli"
 
 alias rec="asciinema rec -i 1.5"
+
+alias b64d="pbpaste | base64 -d"
