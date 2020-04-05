@@ -388,3 +388,30 @@ function csv() {
   column -s, -t < $1 | cat
 }
 
+function op_csv() {
+    if [ -z "$1" ]; then
+        echo "failed to send a vault name"
+        return 0
+    fi
+    # name of vault to try
+    vault="$1"
+    # mapping to use, for tersity
+    mapping="{ created: .createdAt, updated: .updatedAt, title: .overview.title, url: .overview.url }"
+
+    # call to op:
+    items=$(op list items --vault $vault)
+    if [ $? -ne 0 ]; then
+        echo "error calling op(1)"
+    fi
+
+    # info for debugging purposes
+    uuid=$(op list vaults | jq -r ".[] | select(.name==\"$vault\") | .uuid")
+    count=$(echo "$items" | jq -r '.[].overview.url' | wc -l)
+    echo -e "valut:\t$vault\nuuid:\t$uuid\ncount:\t$count" | column -t
+
+    # sorted
+    sorted=$(echo "$items" | jq -r "sort_by(.overview.title)")
+
+    # get all of items in the vault out to CSV:
+    echo "$sorted" | jq -r ".[] | $mapping | [.title,.created,.updated,.url] | @csv" > $vault.csv
+}
