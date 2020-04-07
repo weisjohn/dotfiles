@@ -65,14 +65,14 @@ function parse_git_branch() {
 }
 
 function k8s_context() {
-	kubectl config current-context
+	kubectl config current-context 2> /dev/null
 }
 
 # rainbow - red orange yellow green blue purple
 if [[ $(id -u) -eq 0 ]]; then
   PS1="\[${BLINK}${MAGENTA}\]\u\e[0m \[$WHITE\]on \[$ORANGE\]\h \[$WHITE\]at \[$YELLOW\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BLUE\]\$(parse_git_branch)\[$WHITE\] to \[$PURPLE\]\$(k8s_context)\[$WHITE\]\nλ \[$RESET\]"
 else
-  PS1="\[${MAGENTA}\]\u\e[0m \[$WHITE\]on \[$ORANGE\]\h \[$WHITE\]at \[$YELLOW\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BLUE\]\$(parse_git_branch)\[$WHITE\] to \[$PURPLE\]\$(k8s_context)\[$WHITE\]\nλ \[$RESET\]"
+  PS1="\[${MAGENTA}\]\u\e[0m \[$WHITE\]on \[$ORANGE\]\h \[$WHITE\]at \[$YELLOW\]\D{%r} \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BLUE\]\$(parse_git_branch)\[$WHITE\]\$([[ -n \$(kubectl config current-context 2> /dev/null) ]] && echo \" to \")\[$PURPLE\]\$(k8s_context)\[$WHITE\]\nλ \[$RESET\]"
 fi
 
 # allow new lines after command executions
