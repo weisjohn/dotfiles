@@ -415,3 +415,17 @@ function op_csv() {
     # get all of items in the vault out to CSV:
     echo "$sorted" | jq -r ".[] | $mapping | [.title,.created,.updated,.url] | @csv" > $vault.csv
 }
+
+# https://unix.stackexchange.com/a/27014
+function displaytime {
+  local T=$1
+  local D=$((T/60/60/24))
+  local H=$((T/60/60%24))
+  local M=$((T/60%60))
+  local S=$((T%60))
+  (( $D > 0 )) && printf '%d days ' $D
+  (( $H > 0 )) && printf '%d hours ' $H
+  (( $M > 0 )) && printf '%d minutes' $M
+  (( $D > 0 || $H > 0 || $M > 0 )) && printf ' '
+  printf '%d seconds\n' $S
+}
