@@ -429,3 +429,32 @@ function displaytime {
   (( $D > 0 || $H > 0 || $M > 0 )) && printf ' '
   printf '%d seconds\n' $S
 }
+
+# the "back" side of the house
+function back() {
+    cmd="$@"
+    START_TIME=$SECONDS
+    until bash -c "$cmd"; do
+        sleep 1
+    done
+    ELAPSED_TIME=$(($SECONDS - $START_TIME))
+
+    # send a toast when done
+    title="callback"
+    message="took $(displaytime $ELAPSED_TIME)"
+    subtitle=${cmd:-""}
+    sound="Submarine"
+    script="display notification \"$message\" with title \"$title\" subtitle \"$subtitle\" sound name \"$sound\""
+    osascript -e "$script"
+}
+
+# take the front side
+function call() {
+    cmd="$@"
+    if [ -z "$cmd" ]; then
+        echo "nothing to do"
+        return
+    fi
+    back "$cmd" > /dev/null 2>&1 & > /dev/null 2>&1
+}
+alias cb="call"
