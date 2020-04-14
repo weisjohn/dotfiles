@@ -107,6 +107,7 @@ fi
 
 ## kubernetes
 source <(argo completion bash)
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # maven
 export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
