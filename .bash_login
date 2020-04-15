@@ -107,6 +107,7 @@ fi
 
 ## kubernetes
 source <(argo completion bash)
+source <(kops completion bash)
 export PATH="${PATH}:${HOME}/.krew/bin"
 
 # maven
