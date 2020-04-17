@@ -458,3 +458,17 @@ function call() {
     back "$cmd" > /dev/null 2>&1 & > /dev/null 2>&1
 }
 alias cb="call"
+
+# capture a command and its output onto the clipboard
+# usage:
+#  - clip echo "hello"       # echo "hello"
+#  - clip !!                 # re-run the last command
+function clip() {
+    cmd=${@:-''}
+    if [ -z "$cmd" ] || [ "$cmd" == "clip" ]; then
+        echo "nothing to do"
+        return
+    fi
+    printf "$ %s\n%s" "$cmd" "$($cmd)" | pbcopy
+    printf "on clipboard:\n\n%s\n\n" "$(pbpaste)"
+}
