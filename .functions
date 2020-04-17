@@ -469,6 +469,6 @@ function clip() {
         echo "nothing to do"
         return
     fi
-    printf "$ %s\n%s" "$cmd" "$($cmd)" | pbcopy
+    printf "$ %s\n%s" "$cmd" "$($cmd 2>&1)" | pbcopy
     printf "on clipboard:\n\n%s\n\n" "$(pbpaste)"
 }
