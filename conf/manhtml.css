@@ -28,7 +28,7 @@ time, mark, audio, video {
 /* Fonts from http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/design/index-en.html */
 
 body {
-  color: #839496;
+  color: #657b83;
   background: #002b36;
   padding: 0;
   margin: 0 0 1em 1.5em;
@@ -41,7 +41,7 @@ h2 {
 }
 
 b {
-  color: #93a1a1;
+  color: #268bd2;
   background: rgba(0, 0, 0, 0.2);
   padding: .2em .4em;
   margin: 0.02em;
