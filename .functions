@@ -262,6 +262,10 @@ function filewatch() {
 	fswatch $1 | xargs -n1 -I{} ./$1
 }
 
+function watchrun() {
+	fswatch -0 "$1" -o | xargs -0 -n1 -I {} sh -c "${*:2}"
+}
+
 ## port listen detector
 function listening() {
 	lsof -i :$1
