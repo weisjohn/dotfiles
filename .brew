@@ -149,3 +149,6 @@ brew install shellcheck
 
 # asciinema
 brew install asciinema
+
+# diff-so-fancy
+brew install diff-so-fancy
