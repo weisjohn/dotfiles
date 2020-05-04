@@ -43,33 +43,33 @@ brew install bash-completion
 brew install hub
 
 # install mongodb
-brew install mongodb
+# brew install mongodb
 
 # redis
-brew install redis
+# brew install redis
 
 # jq cli
 brew install jq
 
 # mysql
-brew install mysql
+# brew install mysql
 
 # mercurial
-brew install hg
+# brew install hg
 
 # postgres
-brew install postgresql
+# brew install postgresql
 
 # phantomjs
-brew install phantomjs
+# brew install phantomjs
 
 # ffmpeg
-brew install ffmpeg
+# brew install ffmpeg
 
-brew install caskroom/cask/vlc
+# brew install caskroom/cask/vlc
 
 # imagemagick
-brew install imagemagick
+# brew install imagemagick
 
 # fswatch
 brew install fswatch
@@ -110,7 +110,7 @@ brew install envchain
 brew install p7zip
 
 # haskell
-brew install ghc
+# brew install ghc
 
 # minio client
 brew install minio/stable/mc
@@ -128,7 +128,7 @@ brew install bat
 brew install fzf
 
 # kubectx
-brew install kubectx
+# brew install kubectx
 
 # k9s
 brew install derailed/k9s/k9s
