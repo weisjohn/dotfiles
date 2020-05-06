@@ -476,3 +476,18 @@ function clip() {
     printf "$ %s\n%s" "$cmd" "$($cmd 2>&1)" | pbcopy
     printf "on clipboard:\n\n%s\n\n" "$(pbpaste)"
 }
+
+# https://gist.github.com/mikecrittenden/fe02c59fed1aeebd0a9697cf7e9f5c0c
+function archive() {
+    domain=$1
+    wget \
+        --recursive \
+        --page-requisites \
+        --adjust-extension \
+        --span-hosts \
+        --convert-links \
+        --restrict-file-names=windows \
+        --domains $domain \
+        --no-parent \
+        $domain
+}
