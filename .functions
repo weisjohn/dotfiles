@@ -247,7 +247,7 @@ function day() {
 
 # golang
 function gdoc() {
-    godoc $1 | pygmentize -O style=solarized -f console256 -g
+    godoc $1 | cat
 }
 
 
