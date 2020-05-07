@@ -66,8 +66,6 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
-# colorized cat : #https://github.com/gthank/solarized-dark-pygments
-alias c='pygmentize -O style=solarized256 -f console256 -g'
 alias cat="bat"
 
 # phone gap aliases
