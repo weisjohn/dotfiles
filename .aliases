@@ -138,8 +138,6 @@ complete -o default -F __start_argo a
 
 complete -o default -F __start_kubectl k
 
-alias v="virtctl"
-
 # aws
 alias awshelp="aws help | man2html > awshelp.html && open awshelp.html"
 
