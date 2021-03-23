@@ -24,12 +24,9 @@ function gm() {
 # git(1) - remove merged branches
 # requires https://github.com/tj/git-extras
 function grmb() {
-  git branch -r --merged origin/master |
-  grep origin |
+  git branch --merged origin/master |
   grep -v master |
-  grep -v develop |
-  awk '{sub(/origin\//,"");print}' |
-  xargs git delete-branch
+  xargs git branch -D
 }
 
 # https://github.com/holman/spark/wiki/Wicked-Cool-Usage
