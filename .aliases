@@ -168,3 +168,6 @@ alias wifi="osx-wifi-cli"
 alias rec="asciinema rec -i 1.5"
 
 alias b64d="pbpaste | base64 -d"
+
+alias c="pbcopy"
+alias v="pbpaste"
