@@ -24,9 +24,6 @@ sudo ln -s /usr/local/bin/gsha512sum /usr/local/bin/sha512sum
 # Install wget with IRI support
 brew install wget --enable-iri
 
-# brew ack
-brew install ack
-
 # vscode
 brew install visual-studio-code
 
@@ -43,33 +40,11 @@ brew install bash-completion
 brew install hub
 
 # install mongodb
-# brew install mongodb
-
-# redis
-# brew install redis
+brew tap mongodb/brew
+brew install mongodb-community@4.4
 
 # jq cli
 brew install jq
-
-# mysql
-# brew install mysql
-
-# mercurial
-# brew install hg
-
-# postgres
-# brew install postgresql
-
-# phantomjs
-# brew install phantomjs
-
-# ffmpeg
-# brew install ffmpeg
-
-# brew install caskroom/cask/vlc
-
-# imagemagick
-# brew install imagemagick
 
 # fswatch
 brew install fswatch
@@ -85,12 +60,6 @@ brew install grep --with-default-names
 
 # TODO: look at https://echo.co/blog/os-x-109-local-development-environment-apache-php-and-mysql-homebrew
 
-# quick markdown preview
-brew cask install qlmarkdown
-
-# other previews
-brew cask install qlstephen
-
 # iterm2
 brew cask install iterm2
 
@@ -100,20 +69,8 @@ brew install gnupg
 # see https://gist.github.com/bcomnes/647477a3a143774069755d672cb395ca
 brew install pinentry-mac
 
-# mcrypt for password protecting files
-brew install mcrypt
-
 # envchain - https://github.com/sorah/envchain
 brew install envchain
-
-# 7zip
-brew install p7zip
-
-# haskell
-# brew install ghc
-
-# minio client
-brew install minio/stable/mc
 
 # watch
 brew install watch
@@ -131,11 +88,7 @@ brew install fzf
 # brew install kubectx
 
 # k9s
-brew install derailed/k9s/k9s
-
-# rdp
-brew cask install xquartz
-brew install freerdp
+brew install k9s
 
 # speedtest-cli
 brew install speedtest-cli
@@ -144,11 +97,17 @@ brew install speedtest-cli
 brew cleanup
 brew install jesseduffield/lazygit/lazygit
 
-# shellcheck
-brew install shellcheck
-
 # asciinema
 brew install asciinema
 
 # diff-so-fancy
 brew install diff-so-fancy
+
+# speedtest
+brew tap teamookla/speedtest
+brew update
+brew install speedtest --force
+
+# ftp
+brew unlink telnet
+brew install inetutils
