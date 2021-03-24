@@ -308,6 +308,10 @@ function dclean() {
     docker images | grep 'months' | awk '{print $3}' | xargs docker rmi
 }
 
+function drmi() {
+    docker images | grep $1 | awk '{print $1 ":" $2}' | xargs docker rmi
+}
+
 function trim() {
     awk '{gsub(/^ +| +$/,"")} {print $0}' | tr -d '\n'
 }
